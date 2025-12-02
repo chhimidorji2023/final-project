@@ -4,107 +4,373 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>About Royal Academy — DGI</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Include the necessary CSS styles from your main file for consistency */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* 1. Global Reset and Base Styling */
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed, 
+        figure, figcaption, footer, header, hgroup, 
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; box-sizing: border-box; }
+        
+        /* === CREAMY/IVORY LIGHT MODE BODY STYLE === */
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f2f2f2;
-            color: #333;
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif; /* Changed font */
+            background-color: #FAF7E8; /* Creamy/Off-White Background */
+            color: #34495E; /* Charcoal/Forest Green - Default Body Text */
+            line-height: 1.7;
+            scroll-behavior: smooth;
+            min-height: 100vh;
+            animation: fadeIn 0.9s ease forwards;
+            opacity: 0;
         }
+
+        /* Color Palette Matches Main Index */
+        /* Primary Dark Text: #34495E (Charcoal/Forest Green) */
+        /* Main Accent: #F4B34C (Deep Ochre/Saffron) */
+        /* Background Cream: #FAF7E8 */
+        /* Inner Card/Highlight Ivory: #FFFFF0 */
+
+        /* 2. Header Styling */
         header {
-            background-color: #3b4a59;
-            color: #f0f0f0;
-            padding: 20px 0;
+            position: relative; 
+            background-color: #FAF7E8; /* Creamy background */
+            color: #34495E; /* Dark text */
+            padding: 35px 0 20px 0; /* Removing all initial horizontal padding */
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1); 
+            margin-bottom: 40px; 
         }
-        nav ul {
-            list-style: none;
+        header h1 {
+            font-size: clamp(1.8rem, 5vw, 2.5rem); 
+            margin-bottom: 5px;
+            color: #F4B34C; /* Accent color for main title */
+        }
+        header p {
+            color: #34495E; /* Dark text for subtitle */
+            margin-top: 5px;
+            /* FIX: Add left padding to shift the centered text right, balancing the fixed menu icon on the left */
+            padding-left: 65px; /* Adjust this value to visually center the text against the whole page width */
+            padding-right: 20px; /* Keep some right padding for good measure */
+        }
+        header img {
+            width: 80px; 
+            height: auto; 
+            display: block; 
+            margin: 0 auto 10px auto; 
+            border-radius: 6px;
+        }
+        /* Hidden navigation list (replaced by sidebar) */
+        nav { display: none; }
+
+        /* 2.5. HAMBURGER MENU STYLING */
+        .menu-toggle {
+            position: fixed; 
+            top: 20px; 
+            left: 20px;
+            z-index: 110; 
+            width: 45px;
+            height: 45px;
+            background-color: #F4B34C; /* Accent color background */
+            border-radius: 8px;
             display: flex;
             justify-content: center;
-            gap: 25px;
-            margin-top: 10px;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
         }
-        nav a {
+
+        .menu-toggle:hover {
+            transform: scale(1.05);
+        }
+
+        .menu-icon {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #FFFFF0; /* Light ivory lines */
+            position: relative;
+            transition: background-color 0.3s;
+        }
+
+        .menu-icon::before,
+        .menu-icon::after {
+            content: '';
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #FFFFF0;
+            position: absolute;
+            transition: transform 0.3s ease, top 0.3s ease;
+        }
+
+        .menu-icon::before {
+            top: -8px;
+        }
+
+        .menu-icon::after {
+            top: 8px;
+        }
+
+        .menu-toggle.active .menu-icon {
+            background-color: transparent; /* Hide middle line */
+        }
+
+        .menu-toggle.active .menu-icon::before {
+            top: 0;
+            transform: rotate(45deg);
+        }
+
+        .menu-toggle.active .menu-icon::after {
+            top: 0;
+            transform: rotate(-45deg);
+        }
+
+        /* --- Full-screen Menu Overlay -> SIDEBAR STYLING --- */
+        .overlay-menu {
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 300px; 
+            max-width: 85%; 
+            height: 100%;
+            background-color: #FFFFF0; 
+            z-index: 105;
+            display: flex;
+            flex-direction: column;
+            padding-top: 80px; 
+            padding-left: 10px;
+            transform: translateX(-100%); 
+            box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+            transition: transform 0.4s ease; 
+        }
+
+        .overlay-menu.visible {
+            transform: translateX(0);
+        }
+
+        .overlay-menu ul {
+            list-style: none;
+            text-align: left; 
+            padding: 0;
+            width: 100%; 
+        }
+
+        .overlay-menu li {
+            margin: 5px 0; 
+        }
+
+        .overlay-menu a {
+            color: #34495E;
+            font-size: 1.1rem; 
+            font-weight: 600; 
             text-decoration: none;
-            color: #f0f0f0;
-            font-weight: 500;
-            transition: color 0.3s;
+            padding: 10px 15px;
+            border-radius: 6px;
+            display: block; 
+            text-align: left; 
+            border-left: 4px solid transparent; 
+            transition: color 0.3s, background-color 0.3s, border-left-color 0.3s;
         }
-        nav a:hover {
-            color: #f4a261;
+
+        /* Highlight the current page link */
+        .overlay-menu a[href="#about-dgi"] { 
+            background-color: #F4B34C15;
+            color: #F4B34C;
+            border-left-color: #F4B34C;
         }
+
+        .overlay-menu a:hover {
+            background-color: #F4B34C15; 
+            color: #F4B34C; 
+            border-left-color: #F4B34C; 
+        }
+        /* --- END SIDEBAR STYLING --- */
+
+
+        /* 3. Main Content Layout */
         main {
-            width: 85%;
-            max-width: 1000px;
-            margin: 30px auto;
+            width: 90%; /* Adjusted width */
+            max-width: 900px; /* Adjusted max-width */
+            margin: 0 auto;
+            padding-bottom: 60px;
         }
         section {
-            margin-bottom: 40px;
-            background-color: #fff;
-            border-radius: 10px;
-            padding: 40px; /* Increased padding for the text page */
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            text-align: left; /* Aligned text left for readability */
+            margin-bottom: 50px; /* Adjusted margin */
+            background: #FFFFF0; /* Ivory background for inner card */
+            border-radius: 16px;
+            padding: 35px; /* Adjusted padding */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.05); 
+            border-top: 4px solid #F4B34C; 
+            padding-top: 40px; 
+            text-align: left;
         }
-        h2, h3 {
-            color: #3b4a59;
-            margin-bottom: 20px;
+        h2 {
+            color: #34495E; /* Primary dark color */
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ddd; 
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h3 {
+            color: #34495E; 
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-top: 25px;
+            margin-bottom: 15px;
             text-align: center;
         }
         p {
-            color: #555;
+            color: #34495E; 
             margin-bottom: 15px;
             text-align: left;
         }
-        .highlight {
-            font-weight: 500;
-            color: #f4a261;
+        ul {
+            list-style-type: none; /* Removed disc style for cleaner look */
+            margin-left: 0;
+            padding-left: 0;
+            margin-bottom: 15px;
         }
+        ul li {
+            margin-bottom: 5px;
+            padding-left: 1.5em; /* Space for the custom bullet */
+            text-indent: -1.5em;
+        }
+        ul li::before {
+            content: "◆"; /* Saffron accent bullet */
+            color: #F4B34C;
+            font-weight: 700;
+            display: inline-block;
+            width: 1.5em;
+        }
+
+        .highlight {
+            font-weight: 600; /* Increased highlight weight */
+            color: #A73C4E; /* Used a deeper accent for highlight */
+        }
+        
+        /* 4. Footer Styling */
         footer {
+            /* Ensure the footer box centers its content */
+            text-align: center; 
+            background: #FAF7E8; /* Creamy background */
+            color: #34495E; /* Dark text */
+            padding: 28px 0;
+            margin-top: 60px;
+            font-size: 1rem;
+            letter-spacing: 0.6px;
+            border-top: 5px solid #F4B34C; /* Accent line */
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+        }
+        /* Ensure paragraphs inside the footer are also centered and have zero margin */
+        footer p {
+            margin: 0; /* Removing default margin that might disrupt centering */
             text-align: center;
-            background-color: #3b4a59;
-            color: #f0f0f0;
-            padding: 20px 0;
-            margin-top: 50px;
-            font-size: 0.9rem;
+        }
+
+        /* 5. Animations and Responsiveness */
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                 padding-left: 0; /* Remove padding when menu is active on mobile to center text */
+                 padding-right: 0;
+            }
+            header p {
+                 padding-left: 0; /* Remove padding override on smaller screens */
+            }
+            .menu-toggle {
+                left: 10px; /* Move menu toggle slightly in on mobile */
+            }
+            main {
+                width: 95%;
+            }
+            section {
+                padding: 25px;
+            }
         }
     </style>
 </head>
 <body>
+    
+    <div class="menu-toggle" id="menuToggle">
+        <span class="menu-icon"></span>
+    </div>
+    
+    <div class="overlay-menu" id="overlayMenu">
+        <ul>
+            <li><a href="index.html">Aesthetics Domain Homepage</a></li>
+            <li><a href="creator.html">Our Creators (Profiles)</a></li> 
+            <li><a href="painting.html">Traditional Arts: Painting</a></li>
+            <li><a href="sculpture.html">Traditional Arts: Sculpture</a></li>
+            <li><a href="weaving.html">Traditional Arts: Weaving</a></li>
+            <li><a href="carving.html">Traditional Arts: Wood Carving</a></li>
+            <li><a href="#about-dgi">About DGI (Current Page)</a></li> 
+        </ul>
+    </div>
+    
     <header>
-        <img src="https://dziseldra.com/images/company_logos/1619616991.jpg" alt="Royal Academy Logo" style="width:80px; height:auto; display:block; margin:0 auto 10px auto; border-radius:6px;">
+        <img src="https://dziseldra.com/images/company_logos/1619616991.jpg" alt="Royal Academy Logo">
         <h1>Royal Academy — DGI</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li> <li><a href="programs.html">Programs</a></li>
-                <li><a href="index.html#creations">Creations</a></li>
-                <li><a href="index.html#contact">About the Creator</a></li>
-            </ul>
-        </nav>
+        <p>Aesthetic Excellence and Wholistic Learning</p>
     </header>
 
     <main>
-        <section>
-            <h2>📚 About The Royal Academy (DGI)</h2>
-            <p>The Royal Academy (TRA) is a key component of the <span class="highlight">Druk Gyalpo’s Institute (DGI)</span>, a visionary center established under the command of His Majesty The King.</p>
+        <section id="about-dgi">
+            <h2>👋 My Project: Aesthetics & Technology</h2>
+            <p>
+                This website is my student project created for the Aesthetics & Technology domain at The Royal Academy (TRA). It's a simple, easy-to-browse guide designed to showcase how we integrate both traditional Bhutanese arts and modern creative technology.
+            </p>
             
-            <h3>Wholistic Learning and The Bhutan Baccalaureate</h3>
-            <p>The Academy’s core mission is to provide high-quality, **wholistic education** to students from Grade 7 to 12. It is the pioneering institution for the **Bhutan Baccalaureate Learning Process** (BB).</p>
-            <p>The BB emphasizes the development of learners across five interconnected areas: **Cerebral, Emotional, Social, Physical, and Spiritual**. This approach aims to nurture future leaders and constructive citizens who are rooted in Bhutanese values while being globally competent.</p>
+            <h3>What I Did for This Website</h3>
+            <p>
+                I built several pages that reflect the scope of the Aesthetics curriculum:
+            </p>
+            <ul>
+                <li>Traditional Arts Exploration: I created separate pages for different traditional Bhutanese arts, covering techniques like painting, sculpting, weaving, and wood carving.</li>
+                <li>Contemporary Focus: I developed a page dedicated to our modern curriculum, focusing on the Music Program and Technology training.</li>
+                <li>Personal Profile: I included a "Creator" page about myself (Chhimi Dorji) to share my inspirations and connection to the project.</li>
+            </ul>
 
-            <h3>Aesthetics & Technology (DGI)</h3>
-            <p>The **Aesthetics & Technology** domain, where this project resides, is vital to the BB curriculum. It focuses on integrating artistic expression (like the *Sculpture, Textile, and Music* you see in the creations section) with modern technological skills. This synergy ensures students can apply creativity and innovation in a changing world.</p>
-            
-            <p>The Academy is a residential, co-educational school that strives to create a balanced and diverse student community, with representation from all 20 Dzongkhags of Bhutan.</p>
+            <h3>About The Royal Academy (DGI)</h3>
+            <p>
+                The Royal Academy (TRA), under DGI, is a pioneering school that uses the <span class="highlight">Bhutan Baccalaureate Learning Process</span>. Our education is wholistic, designed to develop students in five key areas: <span class="highlight">Cerebral, Emotional, Social, Physical, and Spiritual</span>. The Aesthetics & Technology domain ensures we learn to combine the beauty of traditional art with modern innovation.
+            </p>
         </section>
     </main>
 
     <footer>
-        <p>© 2025 Royal Academy Bhutan | Made by a beginner student</p>
+        <p>Aesthetic Excellence and Cultural Preservation | Royal Academy Bhutan</p>
+        <p>© 2025 Royal Academy — Chhimi Dorji | All Rights Reserved</p>
     </footer>
+    
+    <script>
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            const menu = document.getElementById('overlayMenu');
+            this.classList.toggle('active');
+            menu.classList.toggle('visible');
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('.overlay-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('menuToggle').classList.remove('active');
+                document.getElementById('overlayMenu').classList.remove('visible');
+            });
+        });
+    </script>
 </body>
 </html>
