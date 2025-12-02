@@ -3,14 +3,24 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ghim: Traditional Bhutanese Music and Instruments</title>
-    <!-- Switching to Inter font for consistency with the main site -->
+    <title>Music: Contemporary Curriculum at The Royal Academy</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         /* 1. Global Reset and Base Styling */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        /* === CREAMY/IVORY LIGHT MODE BODY STYLE === */
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed, 
+        figure, figcaption, footer, header, hgroup, 
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: #FAF7E8; /* Creamy/Off-White Background */
@@ -20,10 +30,11 @@
             min-height: 100vh;
             animation: fadeIn 0.9s ease forwards;
             opacity: 0;
+            box-sizing: border-box; /* Added to body/html to replace the global reset rule */
         }
-
-        /* Color Palette Matches Main Index */
-        /* Primary Dark Text: #34495E (Charcoal/Forest Green) */
+        
+        /* === COLOR PALETTE === */
+        /* Primary Dark Text: #34495E */
         /* Main Accent: #F4B34C (Deep Ochre/Saffron) */
         /* Background Cream: #FAF7E8 */
         /* Inner Card/Highlight Ivory: #FFFFF0 */
@@ -31,13 +42,9 @@
         /* 2. Header Styling */
         header {
             position: relative; 
-            
-            background-color: #FAF7E8; /* Creamy background */
-            color: #34495E; /* Dark text */
-            
-            /* ADJUSTED: Increased left padding to push text away from the menu button area */
+            background-color: #FAF7E8; 
+            color: #34495E; 
             padding: 35px 0 20px 80px; 
-            
             text-align: center;
             box-shadow: 0 3px 10px rgba(0,0,0,0.1); 
             margin-bottom: 40px; 
@@ -51,17 +58,15 @@
             color: #34495E; /* Dark text for subtitle */
         }
         
-        /* 2.5. HAMBURGER MENU STYLING (The menu toggle is now fixed again) */
-
-        /* The button itself, FIXED again so it doesn't scroll with the header */
+        /* 2.5. HAMBURGER MENU STYLING (Fixed Navigation) */
         .menu-toggle {
             position: fixed; 
-            top: 20px; /* Aligned to the top */
+            top: 20px; 
             left: 20px;
             z-index: 110; 
             width: 45px;
             height: 45px;
-            background-color: #F4B34C; /* Accent color background */
+            background-color: #F4B34C; 
             border-radius: 8px;
             display: flex;
             justify-content: center;
@@ -75,12 +80,11 @@
             transform: scale(1.05);
         }
 
-        /* The three-line icon */
         .menu-icon {
             display: block;
             width: 25px;
             height: 3px;
-            background-color: #FFFFF0; /* Light ivory lines */
+            background-color: #FFFFF0; 
             position: relative;
             transition: background-color 0.3s;
         }
@@ -104,9 +108,8 @@
             top: 8px;
         }
 
-        /* Active state (X icon) */
         .menu-toggle.active .menu-icon {
-            background-color: transparent; /* Hide middle line */
+            background-color: transparent; 
         }
 
         .menu-toggle.active .menu-icon::before {
@@ -121,60 +124,53 @@
 
         /* --- Full-screen Menu Overlay -> SIDEBAR STYLING --- */
         .overlay-menu {
-            position: fixed; /* This MUST remain fixed so the menu stays put when open */
+            position: fixed; 
             top: 0;
             left: 0;
-            /* New: Narrow width for sidebar */
             width: 300px; 
-            max-width: 85%; /* Responsive safety for very small screens */
+            max-width: 85%; 
             height: 100%;
-            background-color: #FFFFF0; /* Ivory background for clear contrast */
+            background-color: #FFFFF0; 
             z-index: 105;
-            
-            /* Content Alignment for Sidebar */
             display: flex;
             flex-direction: column;
-            padding-top: 80px; /* Space for the hamburger icon */
+            padding-top: 80px; 
             padding-left: 10px;
-            
-            /* Animation: Slide out from the left */
-            transform: translateX(-100%); /* Initial position: off-screen left */
+            transform: translateX(-100%); 
             box-shadow: 4px 0 10px rgba(0,0,0,0.1);
-            transition: transform 0.4s ease; /* Only transition transform */
+            transition: transform 0.4s ease;
         }
 
-        /* Visible state: Slide into view */
         .overlay-menu.visible {
             transform: translateX(0);
         }
 
         .overlay-menu ul {
             list-style: none;
-            text-align: left; /* Align list content left */
+            text-align: left; 
             padding: 0;
-            width: 100%; /* Take full width of the sidebar */
+            width: 100%; 
         }
 
         .overlay-menu li {
-            margin: 5px 0; /* Reduced margin */
+            margin: 5px 0; 
         }
 
         .overlay-menu a {
             color: #34495E;
-            font-size: 1.1rem; /* Smaller font for thin sidebar */
+            font-size: 1.1rem; 
             font-weight: 600; 
             text-decoration: none;
             padding: 10px 15px;
             border-radius: 6px;
-            display: block; /* Make links block level */
-            text-align: left; /* Align links to the left */
-            /* Added a thin border on the left for a 'tab' feel */
+            display: block; 
+            text-align: left; 
             border-left: 4px solid transparent; 
             transition: color 0.3s, background-color 0.3s, border-left-color 0.3s;
         }
         
-        /* Highlight active/current page - Since the content is here, we highlight the current file */
-        .overlay-menu a[href="music.html"] {
+        .overlay-menu a[href="music.html"],
+        .overlay-menu a[href="#contemporary-music"] {
             background-color: #F4B34C15;
             color: #F4B34C;
             border-left-color: #F4B34C;
@@ -182,9 +178,9 @@
 
 
         .overlay-menu a:hover {
-            background-color: #F4B34C15; /* Very light accent background */
-            color: #F4B34C; /* Accent text color on hover */
-            border-left-color: #F4B34C; /* Saffron accent on the left */
+            background-color: #F4B34C15; 
+            color: #F4B34C; 
+            border-left-color: #F4B34C; 
         }
         /* --- END SIDEBAR STYLING --- */
 
@@ -205,7 +201,6 @@
             padding-top: 40px; 
         }
         
-        /* Ensure H2 headings act as proper section anchors */
         h2 {
             color: #34495E; 
             font-size: 1.8rem;
@@ -219,7 +214,7 @@
             color: #34495E; 
         }
 
-        /* Image Styling - Applied soft shadows and rounded corners */
+        /* Image Styling */
         .content-image {
             width: 100%;
             height: auto;
@@ -230,7 +225,7 @@
             box-shadow: 0 6px 15px rgba(0,0,0,0.1);
         }
         
-        /* Highlight Box: Use the whiter Ivory color to stand out slightly from the creamy background */
+        /* Highlight Box */
         .highlight-box {
             background-color: #FFFFF0; 
             border: 2px solid #F4B34C; 
@@ -259,9 +254,9 @@
             text-indent: -1.5em;
         }
         ul li::before {
-            content: "◆"; 
-            color: #F4B34C; /* Saffron accent bullet */
-            font-weight: bold; 
+            content: "♪"; 
+            color: #F4B34C; 
+            font-weight: 700; /* NOTE: Set font-weight here to make the list items stand out, replacing the strong tags */
             display: inline-block; 
             width: 1.5em; 
         }
@@ -275,9 +270,7 @@
             margin-top: 60px;
             font-size: 1rem;
             letter-spacing: 0.6px;
-            /* FOOTER BORDER ACCENT CHANGE */
             border-top: 5px solid #F4B34C; 
-            /* Added a soft shadow to the footer */
             box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
         }
 
@@ -288,8 +281,7 @@
 
         @media (max-width: 600px) {
             header {
-                 /* Ensure button placement works on mobile, header text should be shifted */
-                 padding-left: 70px; /* Reduced for smaller screens */
+                 padding-left: 70px; 
                  padding-right: 10px;
             }
             main {
@@ -303,12 +295,10 @@
 </head>
 <body>
     
-    <!-- 1. HAMBURGER MENU ICON (FIXED TOP LEFT) -->
     <div class="menu-toggle" id="menuToggle">
         <span class="menu-icon"></span>
     </div>
     
-    <!-- 2. SLIDE-OUT NAVIGATION SIDEBAR (The menu overlay must remain fixed to cover the screen) -->
     <div class="overlay-menu" id="overlayMenu">
         <ul>
             <li><a href="index.html">Main Page (Zorig Chusum)</a></li>
@@ -316,66 +306,58 @@
             <li><a href="sculpture.html">Sculpture (Jim Zo)</a></li>
             <li><a href="weaving.html">Weaving (Thag Zo)</a></li>
             <li><a href="carving.html">Wood Carving (Shing Zo)</a></li>
-            <li><a href="music.html">Music (Ghim)</a></li> <!-- Active Page -->
-        </ul>
+            <li><a href="#contemporary-music">Music (Contemporary Focus)</a></li> </ul>
     </div>
     
     <header>
-        <h1>Ghim: The Diverse World of Bhutanese Music</h1>
-        <p>From Monastic Chants to Dranyen Melodies</p>
+        <h1>🎶 Music Program: Contemporary Focus at The Royal Academy</h1>
+        <p>Training in Western Theory, Original Composition, and Modern Production</p>
     </header>
 
     <main>
-        <section id="introduction">
-            <h2>The Cultural Role of *Ghim* and Performance</h2>
+        <section id="contemporary-music">
+            <h2>The Aesthetics of Modern Music Education</h2>
             <p>
-                Bhutanese music, often referred to as **Ghim** (a general term for singing/chanting), is deeply integrated into the country's cultural and spiritual fabric. Unlike Western music, the primary function of traditional Bhutanese music is not entertainment but **ritual observance** and **historical preservation**. It serves as an essential component of masked dances (*Cham*), religious ceremonies (*Tsechus*), and narrative storytelling (*Lozey*).
+                The Royal Academy’s Aesthetics curriculum in Music is designed to cultivate creative, independent artists who are proficient in both Western musical traditions and modern production technologies. Our program moves beyond rote learning of traditional songs, focusing instead on the principles of composition, beat creation, and individual artistic expression.
             </p>
-            <img src="https://placehold.co/900x400/F4B34C/34495E?text=Traditional+Bhutanese+Musicians" 
-                alt="Traditional Bhutanese Musicians playing instruments" 
+            
+            <img src="https://placehold.co/900x400/F4B34C/34495E?text=Students+in+Modern+Music+Studio" 
+                alt="Students composing and producing music on computers and instruments" 
                 class="content-image"
-                onerror="this.onerror=null; this.src='https://placehold.co/900x400/F4B34C/34495E?text=Traditional+Musicians+Placeholder';"
+                onerror="this.onerror=null; this.src='https://placehold.co/900x400/F4B34C/34495E?text=Modern+Music+Program+Focus';"
             >
+
+            <h3>Core Pillars of the Program:</h3>
+            <ul>
+                <li>
+                    Western Musical Theory: Students gain a foundational understanding of harmony, melody, and structure, primarily through the Western system, enabling them to analyze and create complex musical forms.
+                </li>
+                <li>
+                    Original Songwriting & Composition: The primary emphasis is on students developing their unique voice by writing their own lyrics, melodies, and instrumental arrangements across various genres.
+                </li>
+                <li>
+                    Modern Production & Beat Making: Training includes the use of Digital Audio Workstations (DAW), MIDI sequencing, and sound engineering principles to produce original beats and fully arranged songs.
+                </li>
+                <li>
+                    Instrumental Proficiency: While instrumental training may cover traditional elements, the focus is on instruments relevant to global music, such as the piano, guitar, and digital controllers.
+                </li>
+            </ul>
         </section>
 
-        <section id="monastic">
-            <h2>The Echoes of the Monastery: Ritual Music</h2>
+        <section id="impact">
+            <h2>Impact on Creative Development</h2>
             <p>
-                The most revered form of music originates from the Buddhist monasteries and is central to monastic life. These compositions, called **Choed-zim**, are often deep, powerful, and repetitive, focusing on prayer and meditation. Monastic music primarily uses non-melodic instruments to create a soundscape intended to facilitate spiritual transformation.
+                This contemporary approach ensures that students acquire globally marketable and expressive skills. By teaching them to create their own works from scratch—whether a pop beat, a hip-hop track, or a classical-fusion piece—the program fosters innovation and self-reliance in the artistic domain. It positions music as a dynamic medium for personal and cultural commentary.
             </p>
             <div class="highlight-box">
-                "The haunting, low notes of the Dung-chen and the sharp clash of the cymbals are not merely sounds; they are sonic offerings designed to resonate with the divine."
+                "Our goal is not merely to teach music, but to empower students to build their own sonic worlds, making them active contributors to the evolving global music landscape."
             </div>
-            
-            <h3>Key Monastic Instruments:</h3>
-            <ul>
-                <li><strong>Dung-chen (Long Horn):</strong> A colossal, low-pitched brass trumpet, used to summon monks or mark solemn ritual moments.</li>
-                <li><strong>Gyaling (Shawm/Oboe):</strong> A double-reed instrument with a piercing, high-pitched tone, often playing the melodic lead.</li>
-                <li><strong>Damaru (Hand Drum):</strong> A small, hourglass-shaped drum often made from two human skullcaps, used by ritual masters.</li>
-            </ul>
-        </section>
-
-        <section id="folk">
-            <h2>Rhythm of the People: Folk Instruments</h2>
-            <p>
-                Secular music, accompanying folk dances and songs, is characterized by lighter, more portable instruments and vibrant, engaging melodies. These performances often narrate historical events, local legends, or simply celebrate community life.
-            </p>
-            
-            <h3>Prominent Folk Instruments:</h3>
-            <ul>
-                <li><strong>Dranyen (Bhutanese Lute):</strong> A seven-stringed plucked instrument, the most widely used accompaniment for folk songs and dance. It resembles a banjo or lute.</li>
-                <li><strong>Lingm (Flute):</strong> A bamboo transverse flute used for lyrical, melodic music, common in pastoral settings and folk ensembles.</li>
-                <li><strong>Khamakha (Drum):</strong> A large, flat hand drum used to maintain rhythm during dances like the *Cham*.</li>
-            </ul>
-            <p>
-                While the soundscapes of monastic and folk music differ greatly, both styles are integral to preserving Bhutan's unique cultural identity and heritage.
-            </p>
         </section>
     </main>
 
     <footer>
-        <p>Aesthetic Excellence and Cultural Preservation | Royal Academy Bhutan</p>
-        <p>© 2025 The Art of Ghim | All Rights Reserved</p>
+        <p>Aesthetic Excellence and Creative Innovation | Royal Academy</p>
+        <p>© 2025 The Contemporary Art of Music | All Rights Reserved</p>
     </footer>
     
     <script>
