@@ -7,7 +7,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         /* 1. Global Reset and Base Styling */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed, 
+        figure, figcaption, footer, header, hgroup, 
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; box-sizing: border-box; } /* box-sizing added to reset list */
         
         /* === CREAMY/IVORY LIGHT MODE BODY STYLE === */
         body {
@@ -273,7 +285,7 @@
             text-align: center;
             width: 100%; /* Ensure title takes full width */
         }
-        .role-model-box strong {
+        .role-model-box strong { /* Keeping this style rule, but removing content tags */
             color: #34495E;
         }
 
@@ -299,15 +311,21 @@
             text-align: left; /* Align text content to the left */
         }
         .role-model-content ul {
-            padding-left: 20px; /* Indent the list for readability */
+            list-style: none; /* Remove default list style */
+            padding-left: 0; 
+        }
+        .role-model-content ul li {
+            padding-left: 1.5em; /* Space for the custom bullet */
+            text-indent: -1.5em;
+            margin-bottom: 5px;
         }
         .role-model-content ul li::before {
             content: "◆"; /* Saffron accent bullet */
             color: #F4B34C;
-            font-weight: bold;
+            font-weight: 700;
             display: inline-block;
             width: 1.5em;
-            margin-left: -1.5em; /* Pull bullet back */
+            /* margin-left: -1.5em; */ /* Removed indent pull as padding/text-indent handles it */
         }
         .role-model-content p {
             margin-bottom: 10px;
@@ -386,12 +404,12 @@
         <section id="introduction">
             <h2>Introduction</h2>
             <p>
-                This section features the profile of an inspiring student creator from the Royal Academy, dedicated to pursuing aesthetics and technology while embracing a wide array of personal interests.
+                This section features my profile as an inspiring student creator from the Royal Academy. I'm dedicated to pursuing aesthetics and technology while embracing a wide array of personal interests.
             </p>
         </section>
 
         <section id="creator-profiles">
-            <h2>Creator Profile</h2>
+            <h2>My Profile</h2>
             <div class="creator-grid">
 
                 <div class="creator-card">
@@ -399,10 +417,10 @@
                     <h4>Chhimi Dorji</h4>
                     <p class="discipline">Student, The Royal Academy (Paro Pangbisa)</p>
                     <p>
-                        Chhimi, hailing from **Thimphu**, is currently studying at the **Royal Academy Paro Pangbisa**. Known for a deep curiosity and a wide variety of **hobbies**, Chhimi embodies a passion for both traditional Bhutanese arts and modern expressive forms.
+                        I'm Chhimi, and I hail from Thimphu. I'm currently studying at the Royal Academy Paro Pangbisa. I'm known for a deep curiosity and a wide variety of hobbies, and I really embody a passion for both traditional Bhutanese arts and modern expressive forms.
                     </p>
                     <p>
-                        A true multidisciplinary learner, Chhimi's interests span across different fields, reflecting a constant desire to learn, analyze, and apply creative thinking to every challenge.
+                        I consider myself a true multidisciplinary learner. My interests span across different fields, reflecting a constant desire to learn, analyze, and apply creative thinking to every challenge I face.
                     </p>
                 </div>
             </div>
@@ -414,14 +432,14 @@
                 </div>
                 <div class="role-model-content">
                     <p>
-                        Chhimi looks up to **L** from the anime *Death Note* because of his **exceptional intellectual process** and his **unconventional approach** to problem-solving.
+                        I really look up to L from the anime *Death Note* because of his exceptional intellectual process and his unconventional approach to problem-solving.
                     </p>
                     <p>
-                        **Why L is a Role Model:**
+                        Why L is my Role Model:
                         <ul>
-                            <li><strong>Analytical Prowess:</strong> L possesses incredible **deductive reasoning** and the ability to connect seemingly unrelated clues, showcasing the power of **critical thinking**.</li>
-                            <li><strong>Unconventional Thinking:</strong> He isn't bound by traditional methods. His willingness to **adopt eccentric tactics** and challenge accepted norms is appealing to a creative mind.</li>
-                            <li><strong>Drive for Truth:</strong> Despite his unusual methods, L's fundamental motivation is a relentless pursuit of **justice and truth**, making him an ethical idealist wrapped in an eccentric shell.</li>
+                            <li>Analytical Prowess: L possesses incredible deductive reasoning and the ability to connect seemingly unrelated clues. I see this as a perfect example of the power of critical thinking.</li>
+                            <li>Unconventional Thinking: He isn't bound by traditional methods. His willingness to adopt eccentric tactics and challenge accepted norms is really appealing to my creative mind.</li>
+                            <li>Drive for Truth: Despite his unusual methods, L's fundamental motivation is a relentless pursuit of justice and truth, making him an ethical idealist wrapped in an eccentric shell—a balance I admire.</li>
                         </ul>
                     </p>
                 </div>
