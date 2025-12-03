@@ -44,7 +44,10 @@
             position: relative; 
             background-color: #FAF7E8; 
             color: #34495E; 
-            padding: 35px 0 20px 80px; 
+            
+            /* FIX: Remove horizontal padding from header container and center it */
+            padding: 35px 0 20px 0; 
+            
             text-align: center;
             box-shadow: 0 3px 10px rgba(0,0,0,0.1); 
             margin-bottom: 40px; 
@@ -56,6 +59,9 @@
         }
         header p {
             color: #34495E; /* Dark text for subtitle */
+            /* FIX: Add balancing padding to shift the centered text right, compensating for the fixed menu icon on the left */
+            padding-left: 65px; 
+            padding-right: 20px;
         }
         
         /* 2.5. HAMBURGER MENU STYLING (Fixed Navigation) */
@@ -273,6 +279,10 @@
             border-top: 5px solid #F4B34C; 
             box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
         }
+        footer p {
+            margin: 0; /* Ensures footer text is centered properly */
+            text-align: center;
+        }
 
         /* 5. Animations and Responsiveness */
         @keyframes fadeIn {
@@ -281,8 +291,11 @@
 
         @media (max-width: 600px) {
             header {
-                 padding-left: 70px; 
-                 padding-right: 10px;
+                 padding-left: 0; 
+                 padding-right: 0;
+            }
+            header p {
+                 padding-left: 0; /* Ensure mobile centers properly */
             }
             main {
                 width: 95%;
@@ -321,7 +334,7 @@
                 The Royal Academy’s Aesthetics curriculum in Music is designed to cultivate creative, independent artists who are proficient in both Western musical traditions and modern production technologies. Our program moves beyond rote learning of traditional songs, focusing instead on the principles of composition, beat creation, and individual artistic expression.
             </p>
             
-            <img src="https://placehold.co/900x400/F4B34C/34495E?text=Students+in+Modern+Music+Studio" 
+            <img src="music1.png" 
                 alt="Students composing and producing music on computers and instruments" 
                 class="content-image"
                 onerror="this.onerror=null; this.src='https://placehold.co/900x400/F4B34C/34495E?text=Modern+Music+Program+Focus';"
