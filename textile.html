@@ -1,405 +1,412 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>The Art of Weaving: Bhutanese Textile (Thagzo)</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    
-    <style>
-        /* Base Styles: Resets and Font */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Art of Weaving: Bhutanese Textile (Thagzo)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Base Styles: Resets and Font */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* === CREAMY/IVORY LIGHT MODE BODY STYLE === */
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #FAF7E8; /* Creamy/Off-White Background */
-            color: #34495E; /* Charcoal/Forest Green - Default Body Text */
-            line-height: 1.7;
-            scroll-behavior: smooth;
-            min-height: 100vh;
-        }
+        /* === CREAMY/IVORY LIGHT MODE BODY STYLE === */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #FAF7E8; /* Creamy/Off-White Background */
+            color: #34495E; /* Charcoal/Forest Green - Default Body Text */
+            line-height: 1.7;
+            scroll-behavior: smooth;
+            min-height: 100vh;
+        }
 
-        /* NEW RULE: Prevent background scrolling when menu is open */
-        body.menu-open {
-            overflow: hidden;
-        }
+        /* NEW RULE: Prevent background scrolling when menu is open */
+        body.menu-open {
+            overflow: hidden;
+        }
 
-        /* Color Palette Variables */
-        :root {
-            --color-primary-dark: #34495E; /* Charcoal/Forest Green */
-            --color-accent-orange: #F4B34C; /* Deep Ochre/Saffron */
-            --color-light: #f0f0f0;
-            --color-card-bg: #FFFFF0; /* Ivory (Inner Card/Highlight) */
-        }
+        /* Color Palette Variables */
+        :root {
+            --color-primary-dark: #34495E; /* Charcoal/Forest Green */
+            --color-accent-orange: #F4B34C; /* Deep Ochre/Saffron */
+            --color-light: #f0f0f0;
+            --color-card-bg: #FFFFF0; /* Ivory (Inner Card/Highlight) */
+        }
 
-        /* 1. HAMBURGER MENU STYLING (FIXED TOP LEFT) */
-        .menu-toggle {
-            position: fixed; 
-            top: 20px; 
-            left: 20px;
-            z-index: 110; 
-            width: 45px;
-            height: 45px;
-            background-color: var(--color-accent-orange); 
-            border-radius: 8px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease;
-        }
+        /* 1. HAMBURGER MENU STYLING (FIXED TOP LEFT) */
+        .menu-toggle {
+            position: fixed; 
+            top: 20px; 
+            left: 20px;
+            z-index: 110; 
+            width: 45px;
+            height: 45px;
+            background-color: var(--color-accent-orange); 
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
 
-        .menu-toggle:hover {
-            transform: scale(1.05);
-        }
+        .menu-toggle:hover {
+            transform: scale(1.05);
+        }
 
-        /* The three-line icon */
-        .menu-icon {
-            display: block;
-            width: 25px;
-            height: 3px;
-            background-color: var(--color-light); 
-            position: relative;
-            transition: background-color 0.3s;
-        }
+        /* The three-line icon */
+        .menu-icon {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--color-light); 
+            position: relative;
+            transition: background-color 0.3s;
+        }
 
-        .menu-icon::before,
-        .menu-icon::after {
-            content: '';
-            display: block;
-            width: 25px;
-            height: 3px;
-            background-color: var(--color-light);
-            position: absolute;
-            transition: transform 0.3s ease, top 0.3s ease;
-        }
+        .menu-icon::before,
+        .menu-icon::after {
+            content: '';
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--color-light);
+            position: absolute;
+            transition: transform 0.3s ease, top 0.3s ease;
+        }
 
-        .menu-icon::before {
-            top: -8px;
-        }
+        .menu-icon::before {
+            top: -8px;
+        }
 
-        .menu-icon::after {
-            top: 8px;
-        }
+        .menu-icon::after {
+            top: 8px;
+        }
 
-        /* Active state (X icon) */
-        .menu-toggle.active .menu-icon {
-            background-color: transparent; 
-        }
+        /* Active state (X icon) */
+        .menu-toggle.active .menu-icon {
+            background-color: transparent; 
+        }
 
-        .menu-toggle.active .menu-icon::before {
-            top: 0;
-            transform: rotate(45deg);
-        }
+        .menu-toggle.active .menu-icon::before {
+            top: 0;
+            transform: rotate(45deg);
+        }
 
-        .menu-toggle.active .menu-icon::after {
-            top: 0;
-            transform: rotate(-45deg);
-        }
+        .menu-toggle.active .menu-icon::after {
+            top: 0;
+            transform: rotate(-45deg);
+        }
 
-        /* --- Full-screen Menu Overlay -> SIDEBAR STYLING --- */
-        .overlay-menu {
-            position: fixed; 
-            top: 0;
-            left: 0;
-            width: 300px; 
-            max-width: 85%; 
-            height: 100%;
-            background-color: var(--color-card-bg); 
-            z-index: 105;
-            display: flex;
-            flex-direction: column;
-            padding-top: 80px; 
-            padding-left: 10px;
-            
-            transform: translateX(-100%); 
-            box-shadow: 4px 0 10px rgba(0,0,0,0.1);
-            transition: transform 0.4s ease; 
-        }
+        /* --- Full-screen Menu Overlay -> SIDEBAR STYLING --- */
+        .overlay-menu {
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 300px; 
+            max-width: 85%; 
+            height: 100%;
+            background-color: var(--color-card-bg); 
+            z-index: 105;
+            display: flex;
+            flex-direction: column;
+            padding-top: 80px; 
+            padding-left: 10px;
+            
+            transform: translateX(-100%); 
+            box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+            transition: transform 0.4s ease; 
+        }
 
-        .overlay-menu.visible {
-            transform: translateX(0);
-        }
+        .overlay-menu.visible {
+            transform: translateX(0);
+        }
 
-        .overlay-menu ul {
-            list-style: none;
-            text-align: left; 
-            padding: 0;
-            width: 100%; 
-        }
+        .overlay-menu ul {
+            list-style: none;
+            text-align: left; 
+            padding: 0;
+            width: 100%; 
+        }
 
-        .overlay-menu li {
-            margin: 5px 0; 
-        }
+        .overlay-menu li {
+            margin: 5px 0; 
+        }
 
-        .overlay-menu a {
-            color: var(--color-primary-dark);
-            font-size: 1.1rem; 
-            font-weight: 500; 
-            text-decoration: none;
-            padding: 10px 15px;
-            border-radius: 6px;
-            display: block; 
-            text-align: left; 
-            border-left: 4px solid transparent; 
-            transition: color 0.3s, background-color 0.3s, border-left-color 0.3s;
-        }
+        .overlay-menu a {
+            color: var(--color-primary-dark);
+            font-size: 1.1rem; 
+            font-weight: 500; 
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            display: block; 
+            text-align: left; 
+            border-left: 4px solid transparent; 
+            transition: color 0.3s, background-color 0.3s, border-left-color 0.3s;
+        }
 
-        .overlay-menu a:hover,
-        /* Highlight for the current page: Weaving (Thag Zo) */
-        .overlay-menu a[href="weaving.html"] {
-            background-color: rgba(244, 179, 76, 0.1); 
-            color: var(--color-accent-orange); 
-            border-left-color: var(--color-accent-orange); 
-        }
+        .overlay-menu a:hover {
+            background-color: rgba(244, 179, 76, 0.1); 
+            color: var(--color-accent-orange); 
+            border-left-color: var(--color-accent-orange); 
+        }
 
-        /* Header Styling (UPDATED to light background/dark text) */
-        header {
-            background-color: #FAF7E8; 
-            color: var(--color-primary-dark); 
-            padding: 35px 0 35px 0; /* Centered padding */
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
-            margin-bottom: 40px;
-        }
-        header h1 {
-            font-size: clamp(1.8rem, 5vw, 2.5rem); 
-            margin-bottom: 5px;
-            color: var(--color-accent-orange); 
-            /* Compensate for menu on left to center h1 */
-            padding-left: 65px;
-        }
-        header p {
-            /* Compensate for menu on left to center p */
-            padding-left: 65px;
-        }
+        /* HIGHLIGHT FOR CURRENT PAGE (Weaving/Thag Zo) - Using internal anchor for consistency */
+        .overlay-menu a[href="#tra-context"] {
+            background-color: rgba(244, 179, 76, 0.1); 
+            color: var(--color-accent-orange); 
+            border-left-color: var(--color-accent-orange);
+        }
+
+        /* Header Styling (UPDATED to light background/dark text) */
+        header {
+            background-color: #FAF7E8; 
+            color: var(--color-primary-dark); 
+            padding: 35px 0 35px 0; /* Centered padding */
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: clamp(1.8rem, 5vw, 2.5rem); 
+            margin-bottom: 5px;
+            color: var(--color-accent-orange); 
+            /* Compensate for menu on left to center h1 */
+            padding-left: 65px;
+        }
+        header p {
+            /* Compensate for menu on left to center p */
+            padding-left: 65px;
+        }
 
 
-        /* Main Content Layout */
-        main {
-            width: 90%; 
-            max-width: 900px;
-            margin: 0 auto;
-            padding-bottom: 60px;
-        }
-        section {
-            background-color: var(--color-card-bg); 
-            border-radius: 10px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            border-left: 5px solid var(--color-accent-orange);
-        }
-        h2 {
-            color: var(--color-primary-dark);
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-        }
-        p {
-            margin-bottom: 15px;
-            color: #34495E; 
-        }
+        /* Main Content Layout */
+        main {
+            width: 90%; 
+            max-width: 900px;
+            margin: 0 auto;
+            padding-bottom: 60px;
+        }
+        section {
+            background-color: var(--color-card-bg); 
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--color-accent-orange);
+        }
+        h2 {
+            color: var(--color-primary-dark);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+            color: #34495E; 
+        }
 
-        /* Image Styling */
-        .content-image {
-            width: 100%;
-            height: auto;
-            max-height: 400px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin: 25px 0;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        }
+        /* Image Styling */
+        .content-image {
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 25px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
 
-        /* Highlight Box (Used for the Five Areas of Development) */
-        .highlight-box {
-            background-color: #FAF7E8; /* Light Cream background */
-            border: 1px solid var(--color-accent-orange);
-            border-radius: 6px;
-            padding: 20px;
-            margin-top: 20px;
-            font-style: italic;
-            color: var(--color-primary-dark);
-        }
+        /* Highlight Box (Used for the Five Areas of Development) */
+        .highlight-box {
+            background-color: #FAF7E8; /* Light Cream background */
+            border: 1px solid var(--color-accent-orange);
+            border-radius: 6px;
+            padding: 20px;
+            margin-top: 20px;
+            font-style: italic;
+            color: var(--color-primary-dark);
+        }
 
-        /* List Styling for emphasis */
-        h3 {
-            color: var(--color-primary-dark);
-            margin-top: 25px;
-            margin-bottom: 10px;
-            font-size: 1.3rem;
-        }
-        ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        ul li {
-            margin-bottom: 10px;
-            padding-left: 1.5em;
-            text-indent: -1.5em;
-        }
-        /* Specific bullet point for Weaving */
-        ul li::before {
-            content: "🧵"; /* Thread spool icon for Weaving */
-            color: var(--color-accent-orange); 
-            font-weight: bold; 
-            display: inline-block; 
-            width: 1.5em; 
-        }
+        /* List Styling for emphasis */
+        h3 {
+            color: var(--color-primary-dark);
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        ul li {
+            margin-bottom: 10px;
+            padding-left: 1.5em;
+            text-indent: -1.5em;
+        }
+        /* Specific bullet point for Weaving */
+        ul li::before {
+            content: "🧵"; /* Thread spool icon for Weaving */
+            color: var(--color-accent-orange); 
+            font-weight: bold; 
+            display: inline-block; 
+            width: 1.5em; 
+        }
 
-        /* Footer Styling */
-        footer {
-            text-align: center;
-            background-color: #FAF7E8; 
-            color: var(--color-primary-dark); 
-            padding: 25px 0;
-            margin-top: 60px;
-            font-size: 0.95rem;
-            border-top: 5px solid var(--color-accent-orange);
-            box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
-        }
-        footer p {
-            margin: 0; /* Ensures footer text is centered properly */
-        }
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            background-color: #FAF7E8; 
+            color: var(--color-primary-dark); 
+            padding: 25px 0;
+            margin-top: 60px;
+            font-size: 0.95rem;
+            border-top: 5px solid var(--color-accent-orange);
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+        }
+        footer p {
+            margin: 0; /* Ensures footer text is centered properly */
+        }
 
-        /* Responsive Adjustments */
-        @media (max-width: 600px) {
-            header {
-                padding-left: 0; /* Reset for mobile */
-                padding-right: 0;
-            }
-            header h1, header p {
-                padding-left: 70px; /* Adjust for mobile menu */
-            }
-            main {
-                width: 95%;
-            }
-            section {
-                padding: 20px;
-            }
-        }
-    </style>
+        /* Responsive Adjustments */
+        @media (max-width: 600px) {
+            header {
+                padding-left: 0; /* Reset for mobile */
+                padding-right: 0;
+            }
+            header h1, header p {
+                padding-left: 70px; /* Adjust for mobile menu */
+            }
+            main {
+                width: 95%;
+            }
+            section {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-    
-    <div class="menu-toggle" id="menuToggle">
-        <span class="menu-icon"></span>
-    </div>
+    
+    <div class="menu-toggle" id="menuToggle">
+        <span class="menu-icon"></span>
+    </div>
 
-    <div class="overlay-menu" id="overlayMenu">
-        <ul>
-            <li><a href="index.html">Main Page (Zorig Chusum)</a></li>
-            <li><a href="painting.html">Painting (Lha Zo)</a></li>
-            <li><a href="sculpture.html">Sculpture (Jim Zo)</a></li>
-            <li><a href="weaving.html">Weaving (Thag Zo)</a></li>
-            <li><a href="carving.html">Wood Carving (Shing Zo)</a></li>
-        </ul>
-    </div>
-    
-    <header>
-        <h1>The Art of Weaving: Bhutanese Textile (Thagzo)</h1>
-        <p>Aesthetics of Color Harmony, Pattern, and Material</p>
-    </header>
+    <div class="overlay-menu" id="overlayMenu">
+        <ul>
+            <li><a href="index.html">Main Page (Arts Overview)</a></li>
+            <li><a href="sculpture.html" title="Elegant forms shaped from stone, wood, and clay inspired by Bhutanese artistry.">Sculpture (Jim Zo)</a></li>
+            <li><a href="painting.html" title="Artworks filled with vibrant colors and traditional inspiration.">Painting (Lha Zo)</a></li>
+            <li><a href="carving.html" title="Wood Carving (Shing Zo)">Wood Carving (Shing Zo)</a></li>
+            <li><a href="music.html" title="Melodies and rhythms capturing the heart of Bhutanese culture.">Music</a></li>
+            <li><a href="theatre.html" title="Performances that bring stories alive through expressive movement.">Theatre</a></li>
+            <li style="margin-top: 15px;"><a href="#tra-context"><strong>Current Page: Weaving (Thag Zo)</strong></a></li>
+        </ul>
+    </div>
+    
+    <header>
+        <h1>The Art of Weaving: Bhutanese Textile (Thagzo)</h1>
+        <p>Aesthetics of Color Harmony, Pattern, and Material</p>
+    </header>
 
-    <main>
-        
-        <section id="tra-context">
-            <h2>1. Our Purpose: Weaving and the Bhutan Baccalaureate 🇧🇹</h2>
-            <p>
-                At The Royal Academy (TRA), <strong>Thagzo</strong> (Textile Weaving) is taught as a central discipline within the <strong>Aesthetics Domain</strong>, fulfilling the Bhutan Baccalaureate's dual goals of <strong>cultural preservation</strong> and <strong>holistic development</strong>. The process of weaving, from preparing the raw material to executing complex motifs, inherently demands discipline, patience, and meticulous planning.
-            </p>
-            <div class="highlight-box">
-                <h3>Connecting to the Five Areas of Development:</h3>
-                <ul>
-                    <li><strong>🧠 Cerebral Development:</strong> Designing and calculating complex patterns (like the <strong>Kushuthara</strong> motif) improves <strong>mathematical reasoning</strong> and abstract spatial planning. Students map out warp and weft counts before touching the loom.</li>
-                    <li><strong>❤️ Emotional Development:</strong> The long, repetitive, yet rewarding process of operating the loom cultivates <strong>patience, focus, and dedication</strong>, essential for emotional maturity and resilience.</li>
-                    <li><strong>👥 Social Development:</strong> Learning regional patterns (e.g., from Lhuntse or Bumthang) and techniques fosters an <strong>understanding of community heritage</strong> and the role of textiles as social and ceremonial markers.</li>
-                    <li><strong>💪 Physical Development:</strong> Operating the loom (especially the traditional backstrap loom) and preparing thread develops <strong>fine motor skills, hand-eye coordination, and body rhythm</strong> necessary for maintaining tension and pattern accuracy.</li>
-                    <li><strong>✨ Spiritual Development:</strong> The use of color symbolism (e.g., the five cardinal colors representing elemental forces) and sacred patterns connects students to the <strong>philosophical and spiritual context</strong> of Bhutanese life and Buddhist principles.</li>
-                </ul>
-            </div>
-            
-        </section>
+    <main>
+        
+        <section id="tra-context">
+            <h2>1. Our Purpose: Weaving and the Bhutan Baccalaureate 🇧🇹</h2>
+            <p>
+                At The Royal Academy (TRA), <strong>Thagzo</strong> (Textile Weaving) is taught as a central discipline within the <strong>Aesthetics Domain</strong>, fulfilling the Bhutan Baccalaureate's dual goals of <strong>cultural preservation</strong> and <strong>holistic development</strong>. The process of weaving, from preparing the raw material to executing complex motifs, inherently demands discipline, patience, and meticulous planning.
+            </p>
+            <div class="highlight-box">
+                <h3>Connecting to the Five Areas of Development:</h3>
+                <ul>
+                    <li><strong>🧠 Cerebral Development:</strong> Designing and calculating complex patterns (like the <strong>Kushuthara</strong> motif) improves <strong>mathematical reasoning</strong> and abstract spatial planning. Students map out warp and weft counts before touching the loom.</li>
+                    <li><strong>❤️ Emotional Development:</strong> The long, repetitive, yet rewarding process of operating the loom cultivates <strong>patience, focus, and dedication</strong>, essential for emotional maturity and resilience.</li>
+                    <li><strong>👥 Social Development:</strong> Learning regional patterns (e.g., from Lhuntse or Bumthang) and techniques fosters an <strong>understanding of community heritage</strong> and the role of textiles as social and ceremonial markers.</li>
+                    <li><strong>💪 Physical Development:</strong> Operating the loom (especially the traditional backstrap loom) and preparing thread develops <strong>fine motor skills, hand-eye coordination, and body rhythm</strong> necessary for maintaining tension and pattern accuracy.</li>
+                    <li><strong>✨ Spiritual Development:</strong> The use of color symbolism (e.g., the five cardinal colors representing elemental forces) and sacred patterns connects students to the <strong>philosophical and spiritual context</strong> of Bhutanese life and Buddhist principles.</li>
+                </ul>
+            </div>
+            
+        </section>
 
-        <hr>
+        <hr>
 
-        <section id="introduction">
-            <h2>2. The Cultural Significance of Thagzo 🎨</h2>
-            <p>
-                <strong>Thagzo</strong> (Textile Weaving) is considered one of Bhutan’s most prominent and complex crafts, primarily practiced by women. Textiles are more than just clothing; they are markers of status, wealth, and profound artistic skill. Each garment, especially the intricate <strong>Kira</strong> (for women) and <strong>Gho</strong> (for men), tells a story through its color combinations and complex symbolic patterns.
-            </p>
-            
-            <img src="textile1.png" 
-                alt="Bhutanese Weaver working on a loom" 
-                class="content-image"
-                onerror="this.onerror=null; this.src='https://placehold.co/900x400/F4B34C/34495E?text=Traditional+Weaving+Art';"
-            >
-        </section>
+        <section id="introduction">
+            <h2>2. The Cultural Significance of Thagzo 🎨</h2>
+            <p>
+                <strong>Thagzo</strong> (Textile Weaving) is considered one of Bhutan’s most prominent and complex crafts, primarily practiced by women. Textiles are more than just clothing; they are markers of status, wealth, and profound artistic skill. Each garment, especially the intricate <strong>Kira</strong> (for women) and <strong>Gho</strong> (for men), tells a story through its color combinations and complex symbolic patterns.
+            </p>
+            
+            <img src="textile1.png" 
+                alt="Bhutanese Weaver working on a loom" 
+                class="content-image"
+                onerror="this.onerror=null; this.src='https://placehold.co/900x400/F4B34C/34495E?text=Traditional+Weaving+Art';"
+            >
+        </section>
 
-        <hr>
+        <hr>
 
-        <section id="principles">
-            <h2>3. Beginner Practice: Upcycling and Simple Construction ♻️</h2>
-            <p>
-                In the early stages of textile education at TRA, students focus on developing foundational dexterity, understanding material properties, and practicing <strong>sustainability</strong> through creative re-use. This hands-on approach builds confidence before tackling the complex designs of traditional looms.
-            </p>
-            
-            <h3>Core Starter Projects:</h3>
-            <ul>
-                <li><strong>🧵 Material Repurposing (Thrift-Fluff):</strong> Students collect textile scraps, old clothing, or discarded yarns and learn techniques to process them into new usable fibers (e.g., twisting strips into cord or chopping them for stuffing). This emphasizes the value of all raw materials.</li>
-                <li><strong>🧶 Simple Dolls and Soft Toys:</strong> Using the repurposed materials, students practice basic sewing, stuffing, and assembly techniques to create small, simple dolls (like <strong>Gokey dolls</strong>) or hand-stitched toys. This task improves <strong>fine motor control</strong> and 3D form building.</li>
-                <li><strong>♻️ Patchwork & Mending:</strong> Introduction to various hand-stitching methods by repairing and decorative patching of old garments or fabric swatches. This instills the GNH value of <strong>durability and anti-consumerism</strong>.</li>
-                <li><strong>📐 Frame Loom Basics:</strong> Students use simple handheld or box frames to weave small, simple coasters or wall hangings. This introduces the core concepts of <strong>warp and weft</strong> and maintaining tension without the complexity of a traditional backstrap loom.</li>
-            </ul>
-        </section>
+        <section id="principles">
+            <h2>3. Beginner Practice: Upcycling and Simple Construction ♻️</h2>
+            <p>
+                In the early stages of textile education at TRA, students focus on developing foundational dexterity, understanding material properties, and practicing <strong>sustainability</strong> through creative re-use. This hands-on approach builds confidence before tackling the complex designs of traditional looms.
+            </p>
+            
+            <h3>Core Starter Projects:</h3>
+            <ul>
+                <li><strong>🧵 Material Repurposing (Thrift-Fluff):</strong> Students collect textile scraps, old clothing, or discarded yarns and learn techniques to process them into new usable fibers (e.g., twisting strips into cord or chopping them for stuffing). This emphasizes the value of all raw materials.</li>
+                <li><strong>🧶 Simple Dolls and Soft Toys:</strong> Using the repurposed materials, students practice basic sewing, stuffing, and assembly techniques to create small, simple dolls (like <strong>Gokey dolls</strong>) or hand-stitched toys. This task improves <strong>fine motor control</strong> and 3D form building.</li>
+                <li><strong>♻️ Patchwork & Mending:</strong> Introduction to various hand-stitching methods by repairing and decorative patching of old garments or fabric swatches. This instills the GNH value of <strong>durability and anti-consumerism</strong>.</li>
+                <li><strong>📐 Frame Loom Basics:</strong> Students use simple handheld or box frames to weave small, simple coasters or wall hangings. This introduces the core concepts of <strong>warp and weft</strong> and maintaining tension without the complexity of a traditional backstrap loom.</li>
+            </ul>
+        </section>
 
-        <hr>
+        <hr>
 
-        <section id="forms">
-            <h2>4. Principal Garments and Forms 👘</h2>
-            <p>
-                Textiles are central to Bhutanese identity, manifested in the national dress and important ritual items.
-            </p>
-            
-            <h3>Main Forms of Textile:</h3>
-            <ul>
-                <li><strong>Kira (Women's Dress):</strong> A large, rectangular piece of fabric wrapped around the body. High-quality Kiras, particularly those with <strong>Kushuthara</strong> patterns, are generational heirlooms.</li>
-                <li><strong>Gho (Men's Garment):</strong> A knee-length robe tied at the waist with a woven belt (<strong>Kera</strong>). The pattern and quality of the fabric often denote the wearer's region or status.</li>
-                <li><strong>Ceremonial Fabrics:</strong> Includes richly patterned altar cloths, temple banners, and cushion covers, which incorporate the same complex geometric and figurative motifs as the clothing.</li>
-            </ul>
-            <div class="highlight-box">
-                "A true Bhutanese textile is measured not just by its beauty, but by the weaver's ability to maintain perfect tension and execute intricate patterns flawlessly."
-            </div>
-        </section>
-    </main>
+        <section id="forms">
+            <h2>4. Principal Garments and Forms 👘</h2>
+            <p>
+                Textiles are central to Bhutanese identity, manifested in the national dress and important ritual items.
+            </p>
+            
+            <h3>Main Forms of Textile:</h3>
+            <ul>
+                <li><strong>Kira (Women's Dress):</strong> A large, rectangular piece of fabric wrapped around the body. High-quality Kiras, particularly those with <strong>Kushuthara</strong> patterns, are generational heirlooms.</li>
+                <li><strong>Gho (Men's Garment):</strong> A knee-length robe tied at the waist with a woven belt (<strong>Kera</strong>). The pattern and quality of the fabric often denote the wearer's region or status.</li>
+                <li><strong>Ceremonial Fabrics:</strong> Includes richly patterned altar cloths, temple banners, and cushion covers, which incorporate the same complex geometric and figurative motifs as the clothing.</li>
+            </ul>
+            <div class="highlight-box">
+                "A true Bhutanese textile is measured not just by its beauty, but by the weaver's ability to maintain perfect tension and execute intricate patterns flawlessly."
+            </div>
+        </section>
+    </main>
 
-    <footer>
-        <p>Aesthetic Excellence and Cultural Preservation | Royal Academy Bhutan</p>
-        <p>© 2025 Textile Weaving Studies | All Rights Reserved</p>
-    </footer>
-    
-    <script>
-        document.getElementById('menuToggle').addEventListener('click', function() {
-            const menu = document.getElementById('overlayMenu');
-            this.classList.toggle('active');
-            menu.classList.toggle('visible');
-            // Toggle the class on the body to control scrolling
-            document.body.classList.toggle('menu-open');
-        });
+    <footer>
+        <p>Aesthetic Excellence and Cultural Preservation | Royal Academy Bhutan</p>
+        <p>© 2025 Textile Weaving Studies | All Rights Reserved</p>
+    </footer>
+    
+    <script>
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            const menu = document.getElementById('overlayMenu');
+            this.classList.toggle('active');
+            menu.classList.toggle('visible');
+            // Toggle the class on the body to control scrolling
+            document.body.classList.toggle('menu-open');
+        });
 
-        // Close menu when a link is clicked
-        document.querySelectorAll('.overlay-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('menuToggle').classList.remove('active');
-                document.getElementById('overlayMenu').classList.remove('visible');
-                // Remove the class on the body when closing
-                document.body.classList.remove('menu-open');
-            });
-        });
-    </script>
+        // Close menu when a link is clicked
+        document.querySelectorAll('.overlay-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('menuToggle').classList.remove('active');
+                document.getElementById('overlayMenu').classList.remove('visible');
+                // Remove the class on the body when closing
+                document.body.classList.remove('menu-open');
+            });
+        });
+    </script>
 </body>
 </html>
