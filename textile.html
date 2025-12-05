@@ -147,7 +147,9 @@
             transition: color 0.3s, background-color 0.3s, border-left-color 0.3s;
         }
 
-        .overlay-menu a:hover {
+        .overlay-menu a:hover,
+        /* Highlight for the current page: Weaving (Thag Zo) */
+        .overlay-menu a[href="weaving.html"] {
             background-color: rgba(244, 179, 76, 0.1); 
             color: var(--color-accent-orange); 
             border-left-color: var(--color-accent-orange); 
@@ -157,7 +159,7 @@
         header {
             background-color: #FAF7E8; 
             color: var(--color-primary-dark); 
-            padding: 35px 0 35px 80px; 
+            padding: 35px 0 35px 0; /* Centered padding */
             text-align: center;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
             margin-bottom: 40px;
@@ -166,7 +168,14 @@
             font-size: clamp(1.8rem, 5vw, 2.5rem); 
             margin-bottom: 5px;
             color: var(--color-accent-orange); 
+            /* Compensate for menu on left to center h1 */
+            padding-left: 65px;
         }
+        header p {
+            /* Compensate for menu on left to center p */
+            padding-left: 65px;
+        }
+
 
         /* Main Content Layout */
         main {
@@ -253,12 +262,18 @@
             border-top: 5px solid var(--color-accent-orange);
             box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
         }
+        footer p {
+            margin: 0; /* Ensures footer text is centered properly */
+        }
 
         /* Responsive Adjustments */
         @media (max-width: 600px) {
             header {
-                padding-left: 70px; 
-                padding-right: 10px;
+                padding-left: 0; /* Reset for mobile */
+                padding-right: 0;
+            }
+            header h1, header p {
+                padding-left: 70px; /* Adjust for mobile menu */
             }
             main {
                 width: 95%;
@@ -310,7 +325,7 @@
             
         </section>
 
-        ---
+        <hr>
 
         <section id="introduction">
             <h2>2. The Cultural Significance of Thagzo 🎨</h2>
@@ -318,14 +333,14 @@
                 <strong>Thagzo</strong> (Textile Weaving) is considered one of Bhutan’s most prominent and complex crafts, primarily practiced by women. Textiles are more than just clothing; they are markers of status, wealth, and profound artistic skill. Each garment, especially the intricate <strong>Kira</strong> (for women) and <strong>Gho</strong> (for men), tells a story through its color combinations and complex symbolic patterns.
             </p>
             
-            <img src="https://placehold.co/900x400/F4B34C/34495E?text=Bhutanese+Weaver+at+Loom" 
+            <img src="textile1.png" 
                 alt="Bhutanese Weaver working on a loom" 
                 class="content-image"
                 onerror="this.onerror=null; this.src='https://placehold.co/900x400/F4B34C/34495E?text=Traditional+Weaving+Art';"
             >
         </section>
 
-        ---
+        <hr>
 
         <section id="principles">
             <h2>3. Beginner Practice: Upcycling and Simple Construction ♻️</h2>
@@ -342,7 +357,7 @@
             </ul>
         </section>
 
-        ---
+        <hr>
 
         <section id="forms">
             <h2>4. Principal Garments and Forms 👘</h2>
