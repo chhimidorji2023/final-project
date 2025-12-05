@@ -1,441 +1,440 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>The Art of Jimzo: Traditional Bhutanese Sculpture</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* 1. Global Reset and Base Styling */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        /* === CREAMY/IVORY LIGHT MODE BODY STYLE === */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #FAF7E8; /* Creamy/Off-White Background */
-            color: #34495E; /* Charcoal/Forest Green - Default Body Text for light background */
-            line-height: 1.7;
-            scroll-behavior: smooth;
-            min-height: 100vh;
-            animation: fadeIn 0.9s ease forwards;
-            opacity: 0;
-        }
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Art of Jimzo: Traditional Bhutanese Sculpture</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* 1. Global Reset and Base Styling */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        /* === CREAMY/IVORY LIGHT MODE BODY STYLE === */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FAF7E8; /* Creamy/Off-White Background */
+            color: #34495E; /* Charcoal/Forest Green - Default Body Text for light background */
+            line-height: 1.7;
+            scroll-behavior: smooth;
+            min-height: 100vh;
+            animation: fadeIn 0.9s ease forwards;
+            opacity: 0;
+        }
 
-        /* Color Palette Matches Main Index */
-        /* Primary Dark Text: #34495E (Charcoal/Forest Green) */
-        /* Main Accent: #F4B34C (Deep Ochre/Saffron) */
-        /* Background Cream: #FAF7E8 */
-        /* Inner Card/Highlight Ivory: #FFFFF0 */
+        /* Color Palette Matches Main Index */
+        /* Primary Dark Text: #34495E (Charcoal/Forest Green) */
+        /* Main Accent: #F4B34C (Deep Ochre/Saffron) */
+        /* Background Cream: #FAF7E8 */
+        /* Inner Card/Highlight Ivory: #FFFFF0 */
 
-        /* 2. Header Styling */
-        header {
-            position: relative; 
-            background-color: #FAF7E8; /* Creamy background */
-            color: #34495E; /* Dark text */
-            
-            padding: 35px 0 20px 0; 
-            
-            text-align: center;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1); 
-            margin-bottom: 40px; 
-        }
-        header h1 {
-            font-size: clamp(1.8rem, 5vw, 2.5rem); 
-            margin-bottom: 5px;
-            color: #F4B34C; /* Accent color for main title */
-        }
-        header p {
-            color: #34495E; /* Dark text for subtitle */
-            /* FIX: Add balancing padding to visually center the text against the fixed menu button */
-            padding-left: 65px; 
-            padding-right: 20px;
-        }
-        
-        /* 2.5. HAMBURGER MENU STYLING */
-        .menu-toggle {
-            position: fixed; 
-            top: 20px; 
-            left: 20px;
-            z-index: 110; 
-            width: 45px;
-            height: 45px;
-            background-color: #F4B34C; 
-            border-radius: 8px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease;
-        }
+        /* 2. Header Styling */
+        header {
+            position: relative; 
+            background-color: #FAF7E8; /* Creamy background */
+            color: #34495E; /* Dark text */
+            
+            padding: 35px 0 20px 0; 
+            
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1); 
+            margin-bottom: 40px; 
+        }
+        header h1 {
+            font-size: clamp(1.8rem, 5vw, 2.5rem); 
+            margin-bottom: 5px;
+            color: #F4B34C; /* Accent color for main title */
+        }
+        header p {
+            color: #34495E; /* Dark text for subtitle */
+            /* FIX: Add balancing padding to visually center the text against the fixed menu button */
+            padding-left: 65px; 
+            padding-right: 20px;
+        }
+        
+        /* 2.5. HAMBURGER MENU STYLING */
+        .menu-toggle {
+            position: fixed; 
+            top: 20px; 
+            left: 20px;
+            z-index: 110; 
+            width: 45px;
+            height: 45px;
+            background-color: #F4B34C; 
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
 
-        .menu-toggle:hover {
-            transform: scale(1.05);
-        }
+        .menu-toggle:hover {
+            transform: scale(1.05);
+        }
 
-        .menu-icon {
-            display: block;
-            width: 25px;
-            height: 3px;
-            background-color: #FFFFF0; 
-            position: relative;
-            transition: background-color 0.3s;
-        }
+        .menu-icon {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #FFFFF0; 
+            position: relative;
+            transition: background-color 0.3s;
+        }
 
-        .menu-icon::before,
-        .menu-icon::after {
-            content: '';
-            display: block;
-            width: 25px;
-            height: 3px;
-            background-color: #FFFFF0;
-            position: absolute;
-            transition: transform 0.3s ease, top 0.3s ease;
-        }
+        .menu-icon::before,
+        .menu-icon::after {
+            content: '';
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #FFFFF0;
+            position: absolute;
+            transition: transform 0.3s ease, top 0.3s ease;
+        }
 
-        .menu-icon::before {
-            top: -8px;
-        }
+        .menu-icon::before {
+            top: -8px;
+        }
 
-        .menu-icon::after {
-            top: 8px;
-        }
+        .menu-icon::after {
+            top: 8px;
+        }
 
-        .menu-toggle.active .menu-icon {
-            background-color: transparent; 
-        }
+        .menu-toggle.active .menu-icon {
+            background-color: transparent; 
+        }
 
-        .menu-toggle.active .menu-icon::before {
-            top: 0;
-            transform: rotate(45deg);
-        }
+        .menu-toggle.active .menu-icon::before {
+            top: 0;
+            transform: rotate(45deg);
+        }
 
-        .menu-toggle.active .menu-icon::after {
-            top: 0;
-            transform: rotate(-45deg);
-        }
+        .menu-toggle.active .menu-icon::after {
+            top: 0;
+            transform: rotate(-45deg);
+        }
 
-        /* --- Full-screen Menu Overlay -> SIDEBAR STYLING --- */
-        .overlay-menu {
-            position: fixed; 
-            top: 0;
-            left: 0;
-            width: 300px; 
-            max-width: 85%; 
-            height: 100%;
-            background-color: #FFFFF0; 
-            z-index: 105;
-            display: flex;
-            flex-direction: column;
-            padding-top: 80px; 
-            padding-left: 10px;
-            transform: translateX(-100%); 
-            box-shadow: 4px 0 10px rgba(0,0,0,0.1);
-            transition: transform 0.4s ease; 
-        }
+        /* --- Full-screen Menu Overlay -> SIDEBAR STYLING --- */
+        .overlay-menu {
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 300px; 
+            max-width: 85%; 
+            height: 100%;
+            background-color: #FFFFF0; 
+            z-index: 105;
+            display: flex;
+            flex-direction: column;
+            padding-top: 80px; 
+            padding-left: 10px;
+            transform: translateX(-100%); 
+            box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+            transition: transform 0.4s ease; 
+        }
 
-        .overlay-menu.visible {
-            transform: translateX(0);
-        }
+        .overlay-menu.visible {
+            transform: translateX(0);
+        }
 
-        .overlay-menu ul {
-            list-style: none;
-            text-align: left; 
-            padding: 0;
-            width: 100%; 
-        }
+        .overlay-menu ul {
+            list-style: none;
+            text-align: left; 
+            padding: 0;
+            width: 100%; 
+        }
 
-        .overlay-menu li {
-            margin: 5px 0; 
-        }
+        .overlay-menu li {
+            margin: 5px 0; 
+        }
 
-        .overlay-menu a {
-            color: #34495E;
-            font-size: 1.1rem; 
-            font-weight: 600; 
-            text-decoration: none;
-            padding: 10px 15px;
-            border-radius: 6px;
-            display: block; 
-            text-align: left; 
-            border-left: 4px solid transparent; 
-            transition: color 0.3s, background-color 0.3s, border-left-color 0.3s;
-        }
+        .overlay-menu a {
+            color: #34495E;
+            font-size: 1.1rem; 
+            font-weight: 600; 
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            display: block; 
+            text-align: left; 
+            border-left: 4px solid transparent; 
+            transition: color 0.3s, background-color 0.3s, border-left-color 0.3s;
+        }
 
-        /* NEW HIGHLIGHT CSS FOR SCULPTURE PAGE - Matching Painting Page Structure */
-        /* Note: Using the internal section link #tra-context to match the style you provided */
-        .overlay-menu a[href="#tra-context"] {
-            background-color: #F4B34C15;
-            color: #F4B34C;
-            border-left-color: #F4B34C;
-        }
-        /* END NEW HIGHLIGHT CSS */
+        /* NEW HIGHLIGHT CSS FOR SCULPTURE PAGE */
+        .overlay-menu a[href="sculpture.html"] {
+            background-color: #F4B34C15;
+            color: #F4B34C;
+            border-left-color: #F4B34C;
+        }
+        /* END NEW HIGHLIGHT CSS */
 
-        .overlay-menu a:hover {
-            background-color: #F4B34C15; 
-            color: #F4B34C; 
-            border-left-color: #F4B34C; 
-        }
-        /* --- END SIDEBAR STYLING --- */
+        .overlay-menu a:hover {
+            background-color: #F4B34C15; 
+            color: #F4B34C; 
+            border-left-color: #F4B34C; 
+        }
+        /* --- END SIDEBAR STYLING --- */
 
-        /* 3. Main Content Layout */
-        main {
-            width: 90%; 
-            max-width: 900px;
-            margin: 0 auto;
-            padding-bottom: 60px;
-        }
-        section {
-            background: #FAF7E8; 
-            border-radius: 16px;
-            padding: 35px; 
-            margin-bottom: 50px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.05); 
-            border-top: 4px solid #F4B34C; 
-            padding-top: 40px; 
-        }
-        
-        h2 {
-            color: #34495E; 
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #ddd; 
-            padding-bottom: 10px;
-        }
-        p {
-            margin-bottom: 15px;
-            color: #34495E; 
-        }
+        /* 3. Main Content Layout */
+        main {
+            width: 90%; 
+            max-width: 900px;
+            margin: 0 auto;
+            padding-bottom: 60px;
+        }
+        section {
+            background: #FAF7E8; 
+            border-radius: 16px;
+            padding: 35px; 
+            margin-bottom: 50px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.05); 
+            border-top: 4px solid #F4B34C; 
+            padding-top: 40px; 
+        }
+        
+        h2 {
+            color: #34495E; 
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ddd; 
+            padding-bottom: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+            color: #34495E; 
+        }
 
-        /* Image Styling */
-        .content-image {
-            width: 100%;
-            height: auto;
-            max-height: 400px;
-            object-fit: cover;
-            border-radius: 12px; 
-            margin: 25px 0;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-        }
-        
-        /* Highlight Box: Use the whiter Ivory color to stand out slightly from the creamy background */
-        .highlight-box {
-            background-color: #FFFFF0; 
-            border: 2px solid #F4B34C; 
-            border-radius: 10px; 
-            padding: 20px;
-            margin-top: 20px;
-            font-style: italic;
-            color: #34495E; 
-        }
-        
-        /* New CSS for Responsive Video Embed */
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            height: 0;
-            overflow: hidden;
-            margin-top: 20px;
-            border-radius: 8px; 
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
+        /* Image Styling */
+        .content-image {
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 12px; 
+            margin: 25px 0;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Highlight Box: Use the whiter Ivory color to stand out slightly from the creamy background */
+        .highlight-box {
+            background-color: #FFFFF0; 
+            border: 2px solid #F4B34C; 
+            border-radius: 10px; 
+            padding: 20px;
+            margin-top: 20px;
+            font-style: italic;
+            color: #34495E; 
+        }
+        
+        /* New CSS for Responsive Video Embed */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            margin-top: 20px;
+            border-radius: 8px; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
 
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        
-        h3 {
-            color: #34495E;
-            margin-top: 25px;
-            margin-bottom: 10px;
-            font-size: 1.4rem;
-            font-weight: 600;
-        }
-        ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        ul li {
-            margin-bottom: 10px;
-            padding-left: 1.5em;
-            text-indent: -1.5em;
-        }
-        ul li::before {
-            content: "◆"; 
-            color: #F4B34C; 
-            font-weight: bold; 
-            display: inline-block; 
-            width: 1.5em; 
-        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        h3 {
+            color: #34495E;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        ul li {
+            margin-bottom: 10px;
+            padding-left: 1.5em;
+            text-indent: -1.5em;
+        }
+        ul li::before {
+            content: "◆"; 
+            color: #F4B34C; 
+            font-weight: bold; 
+            display: inline-block; 
+            width: 1.5em; 
+        }
 
-        /* 4. Footer Styling */
-        footer {
-            text-align: center;
-            background: #FAF7E8; 
-            color: #34495E; 
-            padding: 28px 0;
-            margin-top: 60px;
-            font-size: 1rem;
-            letter-spacing: 0.6px;
-            border-top: 5px solid #F4B34C; 
-            box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
-        }
-        footer p {
-            margin: 0; /* Ensures footer text is centered properly */
-            text-align: center;
-        }
+        /* 4. Footer Styling */
+        footer {
+            text-align: center;
+            background: #FAF7E8; 
+            color: #34495E; 
+            padding: 28px 0;
+            margin-top: 60px;
+            font-size: 1rem;
+            letter-spacing: 0.6px;
+            border-top: 5px solid #F4B34C; 
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+        }
+        footer p {
+            margin: 0; /* Ensures footer text is centered properly */
+            text-align: center;
+        }
 
-        /* 5. Animations and Responsiveness */
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
+        /* 5. Animations and Responsiveness */
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
 
-        @media (max-width: 600px) {
-            header {
-                padding-left: 0; /* Remove padding override on smaller screens */
-                padding-right: 0;
-            }
-            header p {
-                padding-left: 0; /* Remove padding override on smaller screens for proper centering */
-            }
-            .menu-toggle {
-                left: 10px;
-            }
-            main {
-                width: 95%;
-            }
-            section {
-                padding: 25px;
-            }
-        }
-    </style>
+        @media (max-width: 600px) {
+            header {
+                padding-left: 0; /* Remove padding override on smaller screens */
+                padding-right: 0;
+            }
+            header p {
+                padding-left: 0; /* Remove padding override on smaller screens for proper centering */
+            }
+            .menu-toggle {
+                left: 10px;
+            }
+            main {
+                width: 95%;
+            }
+            section {
+                padding: 25px;
+            }
+        }
+    </style>
 </head>
 <body>
-    
-    <div class="menu-toggle" id="menuToggle">
-        <span class="menu-icon"></span>
-    </div>
-    
-    <div class="overlay-menu" id="overlayMenu">
-        <ul>
-            <li><a href="index.html">Main Page (Arts Overview)</a></li>
-            <li><a href="painting.html" title="Artworks filled with vibrant colors and traditional inspiration.">Painting (Lha Zo)</a></li>
-            <li><a href="textile.html" title="Colorful handwoven fabrics showcasing fine patterns and traditional skill.">Textile</a></li>
-            <li><a href="music.html" title="Melodies and rhythms capturing the heart of Bhutanese culture, including traditional and modern approaches.">Music</a></li>
-            <li><a href="theatre.html" title="Performances that bring stories alive through expressive movement.">Theatre</a></li>
-            <li><a href="hiphop-dance.html" title="Energetic choreography blending modern style with Bhutanese rhythm.">Hip Hop Dance</a></li>
-            <li style="margin-top: 15px;"><a href="#tra-context"><strong>Current Page: Sculpture (Jimzo)</strong></a></li>
-        </ul>
-    </div>
-    
-    <header>
-        <h1>Sculpture (Jimzo): Form, Space, and Cultural Heritage</h1>
-        <p>A Core Discipline in The Royal Academy's Aesthetics Domain</p>
-    </header>
+    
+    <div class="menu-toggle" id="menuToggle">
+        <span class="menu-icon"></span>
+    </div>
+    
+    <div class="overlay-menu" id="overlayMenu">
+        <ul>
+            <li><a href="index.html">Main Page (Arts Overview)</a></li>
+            <li><a href="sculpture.html" title="Elegant forms shaped from stone, wood, and clay inspired by Bhutanese artistry."><strong>Current Page: Sculpture (Jimzo)</strong></a></li>
+            <li><a href="painting.html" title="Artworks filled with vibrant colors and traditional inspiration.">Painting (Lha Zo)</a></li>
+            <li><a href="textile.html" title="Colorful handwoven fabrics showcasing fine patterns and traditional skill.">Textile</a></li>
+            <li><a href="music.html" title="Melodies and rhythms capturing the heart of Bhutanese culture, including traditional and modern approaches.">Music</a></li>
+            <li><a href="theatre.html" title="Performances that bring stories alive through expressive movement.">Theatre</a></li>
+            <li><a href="hiphop-dance.html" title="Energetic choreography blending modern style with Bhutanese rhythm.">Hip Hop Dance</a></li>
+        </ul>
+    </div>
+    
+    <header>
+        <h1>Sculpture (Jimzo): Form, Space, and Cultural Heritage</h1>
+        <p>A Core Discipline in The Royal Academy's Aesthetics Domain</p>
+    </header>
 
-    <main>
-        
-        <section id="tra-context">
-            <h2>1. Our Purpose: Sculpture and the Bhutan Baccalaureate </h2>
-            <p>
-                At The Royal Academy (TRA), the study of three-dimensional art is central to the <strong>Aesthetics Domain</strong>. By engaging with traditional Bhutanese sculpture (<strong>Jimzo</strong>) and global techniques, students fulfill the Bhutan Baccalaureate's key goal of <strong>preserving cultural heritage</strong> while developing critical artistic skills. 
-            </p>
-            <p>
-                Our program emphasizes the unique role of Jimzo as a sacred art form, fostering both aesthetic appreciation and a deeper connection to national identity.
-            </p>
+    <main>
+        
+        <section id="tra-context">
+            <h2>1. Our Purpose: Sculpture and the Bhutan Baccalaureate</h2>
+            <p>
+                At The Royal Academy (TRA), the study of three-dimensional art is central to the <strong>Aesthetics Domain</strong>. By engaging with traditional Bhutanese sculpture (<strong>Jimzo</strong>) and global techniques, students fulfill the Bhutan Baccalaureate's key goal of <strong>preserving cultural heritage</strong> while developing critical artistic skills. 
+            </p>
+            <p>
+                Our program emphasizes the unique role of Jimzo as a sacred art form, fostering both aesthetic appreciation and a deeper connection to national identity.
+            </p>
 
-            <div class="highlight-box">
-                <div class="video-container">
-                    <iframe 
-                        src="https://www.youtube.com/embed/LA5Pbd8sdbU" 
-                        title="YouTube video player" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>
-                </div>
-                </div>
-        </section>
+            <div class="highlight-box">
+                <div class="video-container">
+                    <iframe 
+                        src="https://www.youtube.com/embed/LA5Pbd8sdbU" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                </div>
+        </section>
 
-        <section id="practical-activities">
-            <h2>2. The Studio: Materials and Project Work</h2>
-            <p>
-                While the historical masters relied solely on the specialized Jimzo clay, TRA students learn foundational sculptural techniques using a variety of accessible materials. This bridges the gap between ancient craft and modern art education, preparing students for any form of three-dimensional art.
-            </p>
+        <section id="practical-activities">
+            <h2>2. The Studio: Materials and Project Work</h2>
+            <p>
+                While the historical masters relied solely on the specialized Jimzo clay, TRA students learn foundational sculptural techniques using a variety of accessible materials. This bridges the gap between ancient craft and modern art education, preparing students for any form of three-dimensional art.
+            </p>
 
-            <h3>Materials Used in the Aesthetics Studio:</h3>
-            <ul>
-                <li><strong>Modeling:</strong> Polymer Clay, Earth Clay, and traditional Jimzo (for advanced modules).</li>
-                <li><strong>Casting:</strong> Plaster of Paris and mold-making materials.</li>
-                <li><strong>Construction/Assemblage:</strong> Recycled or "found" objects, wire, and Paper Mâché.</li>
-            </ul>
-            
-            <h3>Sample Project Ideas:</h3>
-            <ul>
-                <li><strong>Jimzo Modeling Project:</strong> Creating a miniature traditional figure or <strong>stupa</strong> (chorten) adhering to the ancient <strong>canons of proportion</strong>.</li>
-                <li><strong>Zazo Functional Pottery:</strong> Designing and shaping a functional earthware piece, like a bowl or incense holder.</li>
-                <li><strong>Abstract GNH Sculpture:</strong> Constructing an abstract form using wire and found objects that symbolically represents one of the nine domains of <strong>Gross National Happiness (GNH)</strong>, such as 'Ecological Resilience' or 'Good Governance'.</li>
-            </ul>
-            <p>
-                <strong>Resources & Field Trips:</strong> Students have opportunities to visit the <strong>National Institute for Zorig Chusum</strong> and local <strong>Lhakhangs</strong> (temples) in Paro and Thimphu to observe and appreciate master Jimzo works firsthand.
-            </p>
-        </section>
+            <h3>Materials Used in the Aesthetics Studio:</h3>
+            <ul>
+                <li><strong>Modeling:</strong> Polymer Clay, Earth Clay, and traditional Jimzo (for advanced modules).</li>
+                <li><strong>Casting:</strong> Plaster of Paris and mold-making materials.</li>
+                <li><strong>Construction/Assemblage:</strong> Recycled or "found" objects, wire, and Paper Mâché.</li>
+            </ul>
+            
+            <h3>Sample Project Ideas:</h3>
+            <ul>
+                <li><strong>Jimzo Modeling Project:</strong> Creating a miniature traditional figure or <strong>stupa</strong> (chorten) adhering to the ancient <strong>canons of proportion</strong>.</li>
+                <li><strong>Zazo Functional Pottery:</strong> Designing and shaping a functional earthware piece, like a bowl or incense holder.</li>
+                <li><strong>Abstract GNH Sculpture:</strong> Constructing an abstract form using wire and found objects that symbolically represents one of the nine domains of <strong>Gross National Happiness (GNH)</strong>, such as 'Ecological Resilience' or 'Good Governance'.</li>
+            </ul>
+            <p>
+                <strong>Resources & Field Trips:</strong> Students have opportunities to visit the <strong>National Institute for Zorig Chusum</strong> and local <strong>Lhakhangs</strong> (temples) in Paro and Thimphu to observe and appreciate master Jimzo works firsthand.
+            </p>
+        </section>
 
-        <section id="introduction">
-            <h2>3. The Spiritual Significance of Jimzo</h2>
-            <p>
-                In Bhutan, <strong>Jimzo</strong> (literally meaning "clay work") refers to the traditional art of sculpture, a practice revered as one of the thirteen arts and crafts (<strong>Zorig Chusum</strong>). These creations are fundamentally religious, serving as <strong>sacred objects</strong> for meditation and worship within fortress-monasteries (<strong>Dzongs</strong>) and temples. The purpose is not mere aesthetic pleasure, but the embodiment of divine figures, such as Buddhas and Bodhisattvas.
-            </p>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn0:ANd9GcQ3XofoU7bHRblvE3iRdSnP-MSV7XvKN_lx8w&s" 
-                alt="Bhutanese Clay Sculpture of a Deity" 
-                class="content-image"
-                onerror="this.onerror=null; this.src='https://placehold.co/900x400/F4B34C/34495E?text=Traditional+Sculpture+Placeholder';"
-            >
-        </section>
+        <section id="introduction">
+            <h2>3. The Spiritual Significance of Jimzo</h2>
+            <p>
+                In Bhutan, <strong>Jimzo</strong> (literally meaning "clay work") refers to the traditional art of sculpture, a practice revered as one of the thirteen arts and crafts (<strong>Zorig Chusum</strong>). These creations are fundamentally religious, serving as <strong>sacred objects</strong> for meditation and worship within fortress-monasteries (<strong>Dzongs</strong>) and temples. The purpose is not mere aesthetic pleasure, but the embodiment of divine figures, such as Buddhas and Bodhisattvas.
+            </p>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn0:ANd9GcQ3XofoU7bHRblvE3iRdSnP-MSV7XvKN_lx8w&s" 
+                alt="Bhutanese Clay Sculpture of a Deity" 
+                class="content-image"
+                onerror="this.onerror=null; this.src='https://placehold.co/900x400/F4B34C/34495E?text=Traditional+Sculpture+Placeholder';"
+            >
+        </section>
 
-        <section id="process">
-            <h2>4. Traditional Materials and Technique</h2>
-            <p>
-                The preparation for Jimzo is as much a ritual as an artistic process. While some works use bronze or carved wood, the vast majority of monumental figures are crafted from clay.
-            </p>
-            
-            <h3>The Clay Sculpting Process:</h3>
-            <ul>
-                <li><strong>The Armature:</strong> A foundational frame of wood, bamboo, or metal is constructed first to bear the immense weight of the clay.</li>
-                <li><strong>Clay Mixing:</strong> Local earth is meticulously prepared, often mixed with binding agents like paper pulp, fiber, or religious substances for durability and texture.</li>
-                <li><strong>Gilding and Polychromy:</strong> Once the form is complete and dry, the sculpture is often painted with vibrant mineral pigments (Polychromy) and frequently adorned with gold leaf (Gilding), highlighting the features and adding radiance.</li>
-            </ul>
-            <p>
-                This intensive art form demands years of training and absolute dedication from the master craftsman, reflecting the high value placed on these devotional objects.
-            </p>
-        </section>
-    </main>
+        <section id="process">
+            <h2>4. Traditional Materials and Technique</h2>
+            <p>
+                The preparation for Jimzo is as much a ritual as an artistic process. While some works use bronze or carved wood, the vast majority of monumental figures are crafted from clay.
+            </p>
+            
+            <h3>The Clay Sculpting Process:</h3>
+            <ul>
+                <li><strong>The Armature:</strong> A foundational frame of wood, bamboo, or metal is constructed first to bear the immense weight of the clay.</li>
+                <li><strong>Clay Mixing:</strong> Local earth is meticulously prepared, often mixed with binding agents like paper pulp, fiber, or religious substances for durability and texture.</li>
+                <li><strong>Gilding and Polychromy:</strong> Once the form is complete and dry, the sculpture is often painted with vibrant mineral pigments (Polychromy) and frequently adorned with gold leaf (Gilding), highlighting the features and adding radiance.</li>
+            </ul>
+            <p>
+                This intensive art form demands years of training and absolute dedication from the master craftsman, reflecting the high value placed on these devotional objects.
+            </p>
+        </section>
+    </main>
 
-    <footer>
-        <p>Aesthetic Excellence and Cultural Preservation | Royal Academy Bhutan</p>
-        <p>© 2025 The Art of Jimzo | All Rights Reserved</p>
-    </footer>
-    
-    <script>
-        document.getElementById('menuToggle').addEventListener('click', function() {
-            const menu = document.getElementById('overlayMenu');
-            this.classList.toggle('active');
-            menu.classList.toggle('visible');
-        });
+    <footer>
+        <p>Aesthetic Excellence and Cultural Preservation | Royal Academy Bhutan</p>
+        <p>© 2025 The Art of Jimzo | All Rights Reserved</p>
+    </footer>
+    
+    <script>
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            const menu = document.getElementById('overlayMenu');
+            this.classList.toggle('active');
+            menu.classList.toggle('visible');
+        });
 
-        // Close menu when a link is clicked
-        document.querySelectorAll('.overlay-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('menuToggle').classList.remove('active');
-                document.getElementById('overlayMenu').classList.remove('visible');
-            });
-        });
-    </script>
+        // Close menu when a link is clicked
+        document.querySelectorAll('.overlay-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('menuToggle').classList.remove('active');
+                document.getElementById('overlayMenu').classList.remove('visible');
+            });
+        });
+    </script>
 </body>
 </html>
