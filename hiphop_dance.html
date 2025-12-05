@@ -7,9 +7,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         /* 1. Global Reset and Base Styling */
-        { margin: 0; padding: 0; box-sizing: border-box; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        /* === CREAMY/IVORY LIGHT MODE BODY STYLE (Bhutanese Aesthetic Template) === */
+        /* === CREAMY/IVORY LIGHT MODE BODY STYLE === */
         body {
             font-family: 'Inter', sans-serif; 
             background-color: #FAF7E8; /* Creamy/Off-White Background */
@@ -21,12 +21,6 @@
             opacity: 0;
         }
 
-        /* Color Palette Matches Template */
-        /* Primary Dark Text: #34495E */
-        /* Main Accent: #F4B34C (Deep Ochre/Saffron) */
-        /* Background Cream: #FAF7E8 */
-        /* Inner Card/Highlight Ivory: #FFFFF0 */
-
         /* 2. Header Styling */
         header {
             position: relative; 
@@ -34,7 +28,7 @@
             color: #34495E; 
             
             /* Space for fixed menu button */
-            padding: 35px 0 20px 80px; 
+            padding: 35px 0 20px 0; 
             
             text-align: center;
             box-shadow: 0 3px 10px rgba(0,0,0,0.1); 
@@ -47,10 +41,12 @@
         }
         header p {
             color: #34495E; /* Dark text for subtitle */
+            /* FIX: Add balancing padding to visually center the text against the fixed menu button */
+            padding-left: 65px; 
+            padding-right: 20px;
         }
         
         /* 2.5. HAMBURGER MENU STYLING (Fixed Navigation) */
-
         .menu-toggle {
             position: fixed; 
             top: 20px; 
@@ -115,13 +111,13 @@
             padding-top: 80px; 
             padding-left: 10px;
             
-            transform: translateX(-100%); 
+            transform: translateX(-100%); /* Hides menu off-screen by default */
             box-shadow: 4px 0 10px rgba(0,0,0,0.1);
             transition: transform 0.4s ease;
         }
 
         .overlay-menu.visible {
-            transform: translateX(0);
+            transform: translateX(0); /* Shows menu */
         }
 
         .overlay-menu ul {
@@ -170,7 +166,6 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.05); /* Softer shadow */
             border-top: 4px solid #F4B34C; /* Top accent bar */
             padding-top: 40px; 
-            border-left: none;
         }
         
         h2 {
@@ -192,23 +187,23 @@
             height: auto;
             max-height: 400px;
             object-fit: cover;
-            border-radius: 12px; /* Adjusted radius to match template */
+            border-radius: 12px;
             margin: 25px 0;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1); /* Adjusted shadow to match template */
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
         }
         
         /* Highlight Box: Use the whiter Ivory color to stand out slightly from the creamy background */
         .highlight-box {
             background-color: #FFFFF0; /* Whiter Ivory */
             border: 2px solid #F4B34C; /* Accent border */
-            border-radius: 10px; /* Adjusted radius */
+            border-radius: 10px;
             padding: 20px;
             margin-top: 20px;
             font-style: italic;
             color: #34495E; /* Dark text */
         }
         
-        /* List Styling for emphasis */
+        /* List Styling for emphasis (Custom Hip Hop bullet point) */
         h3 {
             color: #34495E;
             margin-top: 25px;
@@ -226,7 +221,7 @@
             text-indent: -1.5em;
         }
         ul li::before {
-            content: "⚡"; /* Changed to lightning bolt for Hip Hop energy */
+            content: "⚡"; /* Lightning bolt for Hip Hop energy */
             color: #F4B34C; 
             font-weight: bold; 
             display: inline-block; 
@@ -253,8 +248,14 @@
 
         @media (max-width: 600px) {
             header {
-                 padding-left: 70px; 
-                 padding-right: 10px;
+                padding-left: 0;
+                padding-right: 0;
+            }
+            header p {
+                padding-left: 0;
+            }
+            .menu-toggle {
+                left: 10px;
             }
             main {
                 width: 95%;
@@ -267,30 +268,37 @@
 </head>
 <body>
     
+    <!-- 1. Hamburger Menu Button (Fixed position) -->
     <div class="menu-toggle" id="menuToggle">
         <span class="menu-icon"></span>
     </div>
     
+    <!-- 2. Sidebar Navigation Overlay (Hidden off-screen by default) -->
     <div class="overlay-menu" id="overlayMenu">
         <ul>
-            <li><a href="#introduction">Hip Hop & The Five Areas</a></li>
-            <li><a href="#holistic-development">Holistic Development (2, 3, 4)</a></li>
+            <li><a href="index.html">Main Page (Zorig Chusum)</a></li>
+            <li><a href="painting.html">Painting (Lha Zo)</a></li>
+            <li><a href="sculpture.html">Sculpture (Jim Zo)</a></li>
+            <li><a href="weaving.html">Weaving (Thag Zo)</a></li>
+            <li><a href="carving.html">Wood Carving (Shing Zo)</a></li>
         </ul>
     </div>
     
+    <!-- 3. Header Content -->
     <header>
         <h1>Hip Hop Aesthetics: A Western Art Form for Holistic Development</h1>
         <p>Integrating Urban Dance Culture with The Royal Academy's Five Areas of Development</p>
     </header>
 
+    <!-- 4. Main Content -->
     <main>
         <section id="introduction">
             <h2>1. Hip Hop Dance in the Aesthetics Curriculum</h2>
             <p>
-                Hip Hop dance, a dynamic art form rooted in Western urban culture, is incorporated into the Royal Academy's Aesthetics program. It serves as a vehicle for <strong>holistic student development</strong>, utilizing its emphasis on individual expression, physical discipline, and non-verbal communication to reinforce the five specified areas of development: <strong>Spiritual, Social, Emotional, Cerebral (Intellectual), and Physical</strong>.
+                Hip Hop dance, a dynamic art form rooted in Western urban culture, is incorporated into the Royal Academy's Aesthetics program. It serves as a vehicle for holistic student development, utilizing its emphasis on individual expression, physical discipline, and non-verbal communication to reinforce the five specified areas of development: Spiritual, Social, Emotional, Cerebral (Intellectual), and Physical.
             </p>
             
-            <img src="https://placehold.co/900x400/F4B34C/34495E?text=Dynamic+Hip+Hop+Dancer" 
+            <img src="dance.png" 
                 alt="Hip Hop Dancer in motion" 
                 class="content-image"
                 onerror="this.onerror=null; this.src='https://placehold.co/900x400/F4B34C/34495E?text=Hip+Hop+Dance+Performance';"
@@ -300,55 +308,57 @@
         <section id="holistic-development">
             <h2>2. Holistic Development: Physical, Cerebral, Emotional, Social, and Spiritual Growth</h2>
             <p>
-                The execution of Hip Hop dance is a comprehensive pedagogical tool that simultaneously engages all five areas of development: <strong>Physical, Cerebral, Emotional, Social, and Spiritual</strong>, reinforcing a holistic approach to student growth through the Aesthetics curriculum.
+                The execution of Hip Hop dance is a comprehensive pedagogical tool that simultaneously engages all five areas of development: Physical, Cerebral, Emotional, Social, and Spiritual, reinforcing a holistic approach to student growth through the Aesthetics curriculum.
             </p>
 
             <h3>I. Physical and Cerebral Mastery</h3>
             <p>
-                The practice requires both athletic <strong>physicality</strong> and intense <strong>cerebral</strong> processing, developing mind-body synergy.
+                The practice requires both athletic physicality and intense cerebral processing, developing mind-body synergy.
             </p>
             <ul>
                 <li>
-                    <strong>Physical Development (Endurance and Coordination):</strong> Styles like Breaking and Power Moves require extreme <strong>cardiovascular fitness, muscular strength, and joint flexibility</strong>. Constant practice refines <strong>gross and fine motor control</strong>, enhancing body awareness.
+                    Physical Development (Endurance and Coordination): Styles like Breaking and Power Moves require extreme cardiovascular fitness, muscular strength, and joint flexibility. Constant practice refines gross and fine motor control, enhancing body awareness.
                 </li>
                 <li>
-                    <strong>Cerebral Development (Musicality and Sequencing):</strong> Students must analyze complex musical structures, counting irregular rhythms, and synchronizing movements to subtle accents ("hitting the beat"). This trains <strong>pattern recognition, memory, and cognitive sequencing</strong> of complex physical sequences.
+                    Cerebral Development (Musicality and Sequencing): Students must analyze complex musical structures, counting irregular rhythms, and synchronizing movements to subtle accents ("hitting the beat"). This trains pattern recognition, memory, and cognitive sequencing of complex physical sequences.
                 </li>
             </ul>
 
             <h3>II. Emotional and Social Discipline</h3>
             <p>
-                Hip Hop's communal and competitive structure builds <strong>emotional resilience</strong> and promotes <strong>positive social conduct</strong>.
+                Hip Hop's communal and competitive structure builds emotional resilience and promotes positive social conduct.
             </p>
             <ul>
                 <li>
-                    <strong>Emotional Development (Self-Expression and Confidence):</strong> Improvisation demands that students create movements spontaneously, pushing them to <strong>express identity</strong> and overcome anxiety under pressure. Mastery builds powerful <strong>self-confidence and emotional assertiveness</strong>.
+                    Emotional Development (Self-Expression and Confidence): Improvisation demands that students create movements spontaneously, pushing them to express identity and overcome anxiety under pressure. Mastery builds powerful self-confidence and emotional assertiveness.
                 </li>
                 <li>
-                    <strong>Social Development (Respect and Inclusion):</strong> Dance battles are governed by a strict code of <strong>mutual respect</strong> (cypher etiquette). Students learn the importance of <strong>turn-taking, constructive criticism, and gracious conduct</strong>—essential skills for cooperative and inclusive social environments.
+                    Social Development (Respect and Inclusion): Dance battles are governed by a strict code of mutual respect (cypher etiquette). Students learn the importance of turn-taking, constructive criticism, and gracious conduct—essential skills for cooperative and inclusive social environments.
                 </li>
             </ul>
             
             <h3>III. Spiritual Focus</h3>
             <p>
-                When performed in a cipher, the dance offers a unique opportunity for <strong>spiritual development</strong> by encouraging a state of complete present-moment awareness.
+                When performed in a cipher, the dance offers a unique opportunity for spiritual development by encouraging a state of complete present-moment awareness.
             </p>
             <div class="highlight-box">
                 "Achieving 'flow' in the dance—the seamless, focused connection between mind, body, and music—mirrors the deep concentration and mindfulness found in spiritual practice."
             </div>
             <ul>
                 <li>
-                    <strong>Spiritual Development (Mindfulness and Presence):</strong> The pursuit of "flow" is a non-denominational practice in <strong>mindfulness</strong>. When dancers are fully immersed, they transcend self-consciousness, connecting to a powerful, shared rhythm. This practice fosters <strong>inner peace and spiritual clarity</strong> through movement.
+                    Spiritual Development (Mindfulness and Presence): The pursuit of "flow" is a non-denominational practice in mindfulness. When dancers are fully immersed, they transcend self-consciousness, connecting to a powerful, shared rhythm. This practice fosters inner peace and spiritual clarity through movement.
                 </li>
             </ul>
         </section>
     </main>
 
+    <!-- 5. Footer -->
     <footer>
         <p>Aesthetic Excellence and Global Culture | Royal Academy</p>
         <p>© 2025 Hip Hop Dance Studies | All Rights Reserved</p>
     </footer>
     
+    <!-- 6. JavaScript for Menu Interaction -->
     <script>
         // JavaScript for the fixed hamburger menu toggle
         document.getElementById('menuToggle').addEventListener('click', function() {
