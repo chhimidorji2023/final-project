@@ -1,398 +1,378 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>A Global Stage: Drama, Aesthetics, and TRA Philosophy</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* 1. Global Reset and Base Styling */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        /* === CREAMY/IVORY LIGHT MODE BODY STYLE (Bhutanese Aesthetic) === */
-        body {
-            font-family: 'Inter', sans-serif; /* Changed to Inter */
-            background-color: #FAF7E8; /* Creamy/Off-White Background */
-            color: #34495E; /* Charcoal/Forest Green - Default Body Text */
-            line-height: 1.7;
-            scroll-behavior: smooth;
-            min-height: 100vh;
-            animation: fadeIn 0.9s ease forwards;
-            opacity: 0;
-        }
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Stage of Stories: Traditional Bhutanese Theatre</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* 1. Global Reset and Base Styling */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        /* === CREAMY/IVORY LIGHT MODE BODY STYLE (Bhutanese Aesthetic) === */
+        body {
+            font-family: 'Inter', sans-serif; /* Changed to Inter */
+            background-color: #FAF7E8; /* Creamy/Off-White Background */
+            color: #34495E; /* Charcoal/Forest Green - Default Body Text */
+            line-height: 1.7;
+            scroll-behavior: smooth;
+            min-height: 100vh;
+            animation: fadeIn 0.9s ease forwards;
+            opacity: 0;
+        }
 
-        /* NEW RULE: Prevent background scrolling when menu is open */
-        body.menu-open {
-            overflow: hidden;
-        }
+        /* Color Palette Matches Bhutanese Template */
+        /* Primary Dark Text: #34495E */
+        /* Main Accent: #F4B34C (Deep Ochre/Saffron) */
+        /* Background Cream: #FAF7E8 */
+        /* Inner Card/Highlight Ivory: #FFFFF0 */
 
-        /* Color Palette Matches Bhutanese Template */
-        :root {
-            --color-primary-dark: #34495E;
-            --color-accent-orange: #F4B34C;
-            --color-card-bg: #FFFFF0;
-            --color-light: #f0f0f0;
-        }
+        /* 2. Header Styling */
+        header {
+            position: relative; 
+            background-color: #FAF7E8; /* Creamy background */
+            color: #34495E; /* Dark text */
+            
+            /* Space for fixed menu button */
+            padding: 35px 0 20px 80px; 
+            
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1); 
+            margin-bottom: 40px; 
+        }
+        header h1 {
+            font-size: clamp(1.8rem, 5vw, 2.5rem); 
+            margin-bottom: 5px;
+            color: #F4B34C; /* Accent color for main title */
+        }
+        header p {
+            color: #34495E; /* Dark text for subtitle */
+        }
+        
+        /* 2.5. HAMBURGER MENU STYLING (Copied from sculpture.html) */
 
-        /* 2. Header Styling */
-        header {
-            position: relative; 
-            background-color: #FAF7E8; /* Creamy background */
-            color: #34495E; /* Dark text */
-            
-            /* Space for fixed menu button */
-            padding: 35px 0 20px 80px; 
-            
-            text-align: center;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1); 
-            margin-bottom: 40px; 
-        }
-        header h1 {
-            font-size: clamp(1.8rem, 5vw, 2.5rem); 
-            margin-bottom: 5px;
-            color: #F4B34C; /* Accent color for main title */
-        }
-        header p {
-            color: #34495E; /* Dark text for subtitle */
-        }
-        
-        /* 2.5. HAMBURGER MENU STYLING */
+        .menu-toggle {
+            position: fixed; 
+            top: 20px; 
+            left: 20px;
+            z-index: 110; 
+            width: 45px;
+            height: 45px;
+            background-color: #F4B34C; /* Accent color background */
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
 
-        .menu-toggle {
-            position: fixed; 
-            top: 20px; 
-            left: 20px;
-            z-index: 110; 
-            width: 45px;
-            height: 45px;
-            background-color: #F4B34C; /* Accent color background */
-            border-radius: 8px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease;
-        }
+        .menu-toggle:hover {
+            transform: scale(1.05);
+        }
 
-        .menu-toggle:hover {
-            transform: scale(1.05);
-        }
+        .menu-icon {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #FFFFF0; 
+            position: relative;
+            transition: background-color 0.3s;
+        }
 
-        .menu-icon {
-            display: block;
-            width: 25px;
-            height: 3px;
-            background-color: #FFFFF0; 
-            position: relative;
-            transition: background-color 0.3s;
-        }
+        .menu-icon::before,
+        .menu-icon::after {
+            content: '';
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #FFFFF0;
+            position: absolute;
+            transition: transform 0.3s ease, top 0.3s ease;
+        }
 
-        .menu-icon::before,
-        .menu-icon::after {
-            content: '';
-            display: block;
-            width: 25px;
-            height: 3px;
-            background-color: #FFFFF0;
-            position: absolute;
-            transition: transform 0.3s ease, top 0.3s ease;
-        }
+        .menu-icon::before { top: -8px; }
+        .menu-icon::after { top: 8px; }
 
-        .menu-icon::before { top: -8px; }
-        .menu-icon::after { top: 8px; }
+        .menu-toggle.active .menu-icon { background-color: transparent; }
+        .menu-toggle.active .menu-icon::before { top: 0; transform: rotate(45deg); }
+        .menu-toggle.active .menu-icon::after { top: 0; transform: rotate(-45deg); }
 
-        .menu-toggle.active .menu-icon { background-color: transparent; }
-        .menu-toggle.active .menu-icon::before { top: 0; transform: rotate(45deg); }
-        .menu-toggle.active .menu-icon::after { top: 0; transform: rotate(-45deg); }
+        /* --- Full-screen Menu Overlay -> SIDEBAR STYLING --- */
+        .overlay-menu {
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 300px; 
+            max-width: 85%; 
+            height: 100%;
+            background-color: #FFFFF0; 
+            z-index: 105;
+            
+            display: flex;
+            flex-direction: column;
+            padding-top: 80px; 
+            padding-left: 10px;
+            
+            transform: translateX(-100%); 
+            box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+            transition: transform 0.4s ease;
+        }
 
-        /* --- Full-screen Menu Overlay -> SIDEBAR STYLING --- */
-        .overlay-menu {
-            position: fixed; 
-            top: 0;
-            left: 0;
-            width: 300px; 
-            max-width: 85%; 
-            height: 100%;
-            background-color: #FFFFF0; 
-            z-index: 105;
-            
-            display: flex;
-            flex-direction: column;
-            padding-top: 80px; 
-            padding-left: 10px;
-            
-            transform: translateX(-100%); 
-            box-shadow: 4px 0 10px rgba(0,0,0,0.1);
-            transition: transform 0.4s ease;
-        }
+        .overlay-menu.visible {
+            transform: translateX(0);
+        }
 
-        .overlay-menu.visible {
-            transform: translateX(0);
-        }
+        .overlay-menu ul {
+            list-style: none;
+            text-align: left; 
+            padding: 0;
+            width: 100%; 
+        }
 
-        .overlay-menu ul {
-            list-style: none;
-            text-align: left; 
-            padding: 0;
-            width: 100%; 
-        }
+        .overlay-menu li {
+            margin: 5px 0; 
+        }
 
-        .overlay-menu li {
-            margin: 5px 0; 
-        }
+        .overlay-menu a {
+            color: #34495E;
+            font-size: 1.1rem; 
+            font-weight: 600; 
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            display: block; 
+            text-align: left; 
+            border-left: 4px solid transparent; 
+            transition: color 0.3s, background-color 0.3s, border-left-color 0.3s;
+        }
+        
+        .overlay-menu a:hover {
+            background-color: #F4B34C15; 
+            color: #F4B34C; 
+            border-left-color: #F4B34C; 
+        }
+        /* --- END SIDEBAR STYLING --- */
 
-        .overlay-menu a {
-            color: #34495E;
-            font-size: 1.1rem; 
-            font-weight: 600; 
-            text-decoration: none;
-            padding: 10px 15px;
-            border-radius: 6px;
-            display: block; 
-            text-align: left; 
-            border-left: 4px solid transparent; 
-            transition: color 0.3s, background-color 0.3s, border-left-color 0.3s;
-        }
-        
-        .overlay-menu a:hover {
-            background-color: #F4B34C15; 
-            color: #F4B34C; 
-            border-left-color: #F4B34C; 
-        }
+        /* 3. Main Content Layout */
+        main {
+            width: 90%; 
+            max-width: 900px;
+            margin: 0 auto;
+            padding-bottom: 60px;
+        }
+        section {
+            background: #FAF7E8; /* Creamy background */
+            border-radius: 16px; /* Larger radius */
+            padding: 35px; 
+            margin-bottom: 50px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.05); /* Softer shadow */
+            border-top: 4px solid #F4B34C; /* Top accent bar */
+            padding-top: 40px; 
+            border-left: none; /* Removed left border from Theatre CSS */
+        }
+        
+        h2 {
+            color: #34495E; 
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ddd; 
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #34495E;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-size: 1.4rem; /* Slightly larger than original Theatre CSS */
+            font-weight: 600;
+        }
+        p {
+            margin-bottom: 15px;
+            color: #34495E; 
+        }
 
-        /* HIGHLIGHT FOR CURRENT PAGE (Theatre/Drama) - Using internal anchor for consistency */
-        .overlay-menu a[href="#introduction"] {
-            background-color: #F4B34C15; 
-            color: #F4B34C; 
-            border-left-color: #F4B34C;
-        }
-        /* --- END SIDEBAR STYLING --- */
+        /* Image Styling */
+        .content-image {
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 12px; /* Adjusted radius to match template */
+            margin: 25px 0;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1); /* Adjusted shadow to match template */
+        }
+        
+        /* Highlight Box: Use the whiter Ivory color to stand out slightly from the creamy background */
+        .highlight-box {
+            background-color: #FFFFF0; /* Whiter Ivory */
+            border: 2px solid #F4B34C; /* Accent border */
+            border-radius: 10px; /* Adjusted radius */
+            padding: 20px;
+            margin-top: 20px;
+            font-style: italic;
+            color: #34495E; /* Dark text */
+        }
+        
+        /* List Styling for emphasis */
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        ul li {
+            margin-bottom: 10px;
+            padding-left: 1.5em;
+            text-indent: -1.5em;
+        }
+        ul li::before {
+            content: "◆"; /* Saffron diamond bullet (from sculpture.html) */
+            color: #F4B34C; 
+            font-weight: bold; 
+            display: inline-block; 
+            width: 1.5em; 
+        }
 
-        /* 3. Main Content Layout */
-        main {
-            width: 90%; 
-            max-width: 900px;
-            margin: 0 auto;
-            padding-bottom: 60px;
-        }
-        section {
-            background: #FAF7E8; /* Creamy background */
-            border-radius: 16px; /* Larger radius */
-            padding: 35px; 
-            margin-bottom: 50px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.05); /* Softer shadow */
-            border-top: 4px solid #F4B34C; /* Top accent bar */
-            padding-top: 40px; 
-            border-left: none; /* Removed left border from Theatre CSS */
-        }
-        
-        h2 {
-            color: #34495E; 
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #ddd; 
-            padding-bottom: 10px;
-        }
-        h3 {
-            color: #34495E;
-            margin-top: 25px;
-            margin-bottom: 10px;
-            font-size: 1.4rem; /* Slightly larger than original Theatre CSS */
-            font-weight: 600;
-        }
-        p {
-            margin-bottom: 15px;
-            color: #34495E; 
-        }
+        /* 4. Footer Styling */
+        footer {
+            text-align: center;
+            background: #FAF7E8; /* Creamy background */
+            color: #34495E; /* Dark text */
+            padding: 28px 0;
+            margin-top: 60px;
+            font-size: 1rem;
+            letter-spacing: 0.6px;
+            border-top: 5px solid #F4B34C; 
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+        }
 
-        /* Image Styling */
-        .content-image {
-            width: 100%;
-            height: auto;
-            max-height: 400px;
-            object-fit: cover;
-            border-radius: 12px; /* Adjusted radius to match template */
-            margin: 25px 0;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1); /* Adjusted shadow to match template */
-        }
-        
-        /* Highlight Box: Use the whiter Ivory color to stand out slightly from the creamy background */
-        .highlight-box {
-            background-color: #FFFFF0; /* Whiter Ivory */
-            border: 2px solid #F4B34C; /* Accent border */
-            border-radius: 10px; /* Adjusted radius */
-            padding: 20px;
-            margin-top: 20px;
-            font-style: italic;
-            color: #34495E; /* Dark text */
-        }
-        
-        /* List Styling for emphasis */
-        ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        ul li {
-            margin-bottom: 10px;
-            padding-left: 1.5em;
-            text-indent: -1.5em;
-        }
-        ul li::before {
-            content: "◆"; /* Saffron diamond bullet (from sculpture.html) */
-            color: #F4B34C; 
-            font-weight: bold; 
-            display: inline-block; 
-            width: 1.5em; 
-        }
+        /* 5. Animations and Responsiveness */
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
 
-        /* 4. Footer Styling */
-        footer {
-            text-align: center;
-            background: #FAF7E8; /* Creamy background */
-            color: #34495E; /* Dark text */
-            padding: 28px 0;
-            margin-top: 60px;
-            font-size: 1rem;
-            letter-spacing: 0.6px;
-            border-top: 5px solid #F4B34C; 
-            box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
-        }
-
-        /* 5. Animations and Responsiveness */
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
-
-        @media (max-width: 600px) {
-            header {
-                 padding-left: 70px; 
-                 padding-right: 10px;
-            }
-            main {
-                width: 95%;
-            }
-            section {
-                padding: 25px;
-            }
-        }
-    </style>
+        @media (max-width: 600px) {
+            header {
+                 padding-left: 70px; 
+                 padding-right: 10px;
+            }
+            main {
+                width: 95%;
+            }
+            section {
+                padding: 25px;
+            }
+        }
+    </style>
 </head>
 <body>
-    
-    <div class="menu-toggle" id="menuToggle">
-        <span class="menu-icon"></span>
-    </div>
-    
-    <div class="overlay-menu" id="overlayMenu">
-        <ul>
-            <li><a href="index.html">Main Page (Arts Overview)</a></li>
-            <li><a href="sculpture.html" title="Elegant forms shaped from stone, wood, and clay inspired by Bhutanese artistry.">Sculpture (Jim Zo)</a></li>
-            <li><a href="painting.html" title="Artworks filled with vibrant colors and traditional inspiration.">Painting (Lha Zo)</a></li>
-            <li><a href="carving.html" title="Wood Carving (Shing Zo)">Wood Carving (Shing Zo)</a></li>
-            <li><a href="weaving.html" title="Textiles and patterns embodying Bhutanese heritage.">Weaving (Thag Zo)</a></li>
-            <li><a href="music.html" title="Melodies and rhythms capturing the heart of Bhutanese culture.">Music</a></li>
-            <li style="margin-top: 15px;"><a href="#introduction"><strong>Current Page: Drama/Theatre</strong></a></li>
-        </ul>
-    </div>
-    
-    <header>
-        <h1>A Global Stage: Drama, Aesthetics, and TRA Philosophy</h1>
-        <p>Connecting International Theatre Movements to The Royal Academy's Pillars</p>
-    </header>
+    
+    <div class="menu-toggle" id="menuToggle">
+        <span class="menu-icon"></span>
+    </div>
+    
+    <div class="overlay-menu" id="overlayMenu">
+        <ul>
+            <li><a href="#introduction">Aesthetics & TRA Pillars</a></li>
+            <li><a href="#classical-link">Classical Drama</a></li>
+            <li><a href="#modern-impact">Modern Movements</a></li>
+            <li><a href="#tra-drama">TRA Practical Drama</a></li>
+            <li><a href="#">Further Reading</a></li>
+        </ul>
+    </div>
+    
+    <header>
+        <h1>A Global Stage: Drama, Aesthetics, and TRA Philosophy</h1>
+        <p>Connecting International Theatre Movements to The Royal Academy's Pillars</p>
+    </header>
 
-    <main>
-        <section id="introduction">
-            <h2>1. Drama as a Vehicle for Holistic Development 🎭</h2>
-            <p>
-                The study of <strong>International Theatre</strong> within The Royal Academy's curriculum is a fundamental tool for <strong>holistic development</strong>. By engaging with global drama, students develop empathy, public speaking mastery, and a critical understanding of ethics and human behavior, supporting all four core TRA pillars.
-            </p>
-            
-            <img src="theatre1.png" 
-                alt="Modern Theatre Stage Performance" 
-                class="content-image"
-                onerror="this.onerror=null; this.src='https://placehold.co/900x400/F4B34C/34495E?text=International+Theatre+Performance';"
-            >
-        </section>
+    <main>
+        <section id="introduction">
+            <h2>1. Drama as a Vehicle for Holistic Development 🎭</h2>
+            <p>
+                The study of <strong>International Theatre</strong> within The Royal Academy's curriculum is a fundamental tool for <strong>holistic development</strong>. By engaging with global drama, students develop empathy, public speaking mastery, and a critical understanding of ethics and human behavior, supporting all four core TRA pillars.
+            </p>
+            
+            <img src="theatre1.png" 
+                alt="Modern Theatre Stage Performance" 
+                class="content-image"
+                onerror="this.onerror=null; this.src='https://placehold.co/900x400/F4B34C/34495E?text=International+Theatre+Performance';"
+            >
+        </section>
 
-        <hr>
+        <hr>
 
-        <section id="classical-link">
-            <h2>2. Classical Drama Aesthetics and Intellectual Rigor 🏛️</h2>
-            <p>
-                The aesthetic foundations of early Western theatre directly support <strong>Intellectual Development</strong> and the ethical foundation of TRA's curriculum. By studying classic forms, students analyze the timeless struggle between personal will and moral obligation.
-            </p>
-            
-            <h3>Links to TRA Pillars:</h3>
-            <ul>
-                <li><strong>Classical Greek Tragedy:</strong> The focus on <strong>hubris</strong> (excessive pride) and the <strong>Chorus</strong> (representing community morality) provides clear case studies in consequence and ethical leadership, fostering <strong>Moral Development</strong>.</li>
-                <li><strong>Shakespearean/Elizabethan Drama:</strong> The complex character studies and dramatic conflicts (e.g., betrayal, justice, duty) enhance <strong>Intellectual Development</strong> by requiring detailed analysis of psychological motivation and moral ambiguity.</li>
-                <li><strong>Neoclassical Rationalism:</strong> This form’s emphasis on strict structure, logic, and poetic language strengthens <strong>Intellectual Development</strong>, training students to value order, clarity, and rational discourse in their own communication and conflict resolution.</li>
-            </ul>
-        </section>
+        <section id="classical-link">
+            <h2>2. Classical Drama Aesthetics and Intellectual Rigor 🏛️</h2>
+            <p>
+                The aesthetic foundations of early Western theatre directly support <strong>Intellectual Development</strong> and the ethical foundation of TRA's curriculum. By studying classic forms, students analyze the timeless struggle between personal will and moral obligation.
+            </p>
+            
+            <h3>Links to TRA Pillars:</h3>
+            <ul>
+                <li><strong>Classical Greek Tragedy:</strong> The focus on <strong>hubris</strong> (excessive pride) and the <strong>Chorus</strong> (representing community morality) provides clear case studies in consequence and ethical leadership, fostering <strong>Moral Development</strong>.</li>
+                <li><strong>Shakespearean/Elizabethan Drama:</strong> The complex character studies and dramatic conflicts (e.g., betrayal, justice, duty) enhance <strong>Intellectual Development</strong> by requiring detailed analysis of psychological motivation and moral ambiguity.</li>
+                <li><strong>Neoclassical Rationalism:</strong> This form’s emphasis on strict structure, logic, and poetic language strengthens <strong>Intellectual Development</strong>, training students to value order, clarity, and rational discourse in their own communication and conflict resolution.</li>
+            </ul>
+        </section>
 
-        <hr>
+        <hr>
 
-        <section id="modern-impact">
-            <h2>3. Modern Aesthetics: Empathy and Critique 💡</h2>
-            <p>
-                20th-century theatre movements offer powerful aesthetic tools for social critique, directly aligning with TRA's focus on <strong>Social Development</strong> and <strong>Emotional Development</strong>.
-            </p>
-            
-            <h3>Aesthetics of Critique:</h3>
-            <ul>
-                <li><strong>Realism and Naturalism:</strong> By stripping away spectacle to present society "as it is," these forms force students to confront issues of poverty, class, and social justice, fostering <strong>Social Development</strong> and empathy.</li>
-                <li><strong>Theatre of the Absurd:</strong> The use of <strong>non-sequitur</strong> and illogical actions challenges conventional meaning-making, pushing students into complex philosophical debates vital for advanced <strong>Intellectual Development</strong>.</li>
-                <li><strong>Epic Theatre (Brecht):</strong> Brecht's technique of <strong>distancing the audience</strong> encourages intellectual judgment rather than emotional catharsis. This aesthetic is invaluable for teaching students to objectively analyze social systems and power structures.</li>
-            </ul>
-            <div class="highlight-box">
-                "Global dramatic arts serve as a mirror, allowing TRA students to reflect on the universal human condition and apply critical ethical and intellectual lenses to their own lives."
-            </div>
-        </section>
+        <section id="modern-impact">
+            <h2>3. Modern Aesthetics: Empathy and Critique 💡</h2>
+            <p>
+                20th-century theatre movements offer powerful aesthetic tools for social critique, directly aligning with TRA's focus on <strong>Social Development</strong> and <strong>Emotional Development</strong>.
+            </p>
+            
+            <h3>Aesthetics of Critique:</h3>
+            <ul>
+                <li><strong>Realism and Naturalism:</strong> By stripping away spectacle to present society "as it is," these forms force students to confront issues of poverty, class, and social justice, fostering <strong>Social Development</strong> and empathy.</li>
+                <li><strong>Theatre of the Absurd:</strong> The use of <strong>non-sequitur</strong> and illogical actions challenges conventional meaning-making, pushing students into complex philosophical debates vital for advanced <strong>Intellectual Development</strong>.</li>
+                <li><strong>Epic Theatre (Brecht):</strong> Brecht's technique of <strong>distancing the audience</strong> encourages intellectual judgment rather than emotional catharsis. This aesthetic is invaluable for teaching students to objectively analyze social systems and power structures.</li>
+            </ul>
+            <div class="highlight-box">
+                "Global dramatic arts serve as a mirror, allowing TRA students to reflect on the universal human condition and apply critical ethical and intellectual lenses to their own lives."
+            </div>
+        </section>
 
-        <hr>
+        <hr>
 
-        <section id="tra-drama">
-            <h2>4. The Royal Academy (TRA) Practical Drama Program 🎬</h2>
-            <p>
-                At The Royal Academy, the practical drama curriculum ensures students move beyond passive analysis to active creation. The program integrates the study of aesthetic history with practical application, nurturing all four pillars of the curriculum.
-            </p>
-            
-            <h3>Performance and Production:</h3>
-            <ul>
-                <li><strong>Original Works:</strong> Students are actively encouraged to develop and stage their <strong>own plays and short shows</strong>. This fosters original storytelling, scriptwriting skills, and the aesthetic development of personal artistic voices, essential for <strong>Emotional Development</strong> and self-expression.</li>
-                <li><strong>Classic Repertoire:</strong> The program includes performances of popular, canonical plays from the global stage (e.g., Shakespeare, Ibsen, contemporary playwrights). This provides hands-on experience in interpreting established dramatic aesthetics and techniques, linking <strong>Emotional Development</strong> to complex character portrayal.</li>
-                <li><strong>Full Production Cycle:</strong> Students manage every aspect of the show, from lighting and sound design to costume creation and marketing. This fosters <strong>Social Development</strong> through collaboration and enhances <strong>Physical Development</strong> through stage presence and technical skills.</li>
-            </ul>
-        </section>
+        <section id="tra-drama">
+            <h2>4. The Royal Academy (TRA) Practical Drama Program 🎬</h2>
+            <p>
+                At The Royal Academy, the practical drama curriculum ensures students move beyond passive analysis to active creation. The program integrates the study of aesthetic history with practical application, nurturing all four pillars of the curriculum.
+            </p>
+            
+            <h3>Performance and Production:</h3>
+            <ul>
+                <li><strong>Original Works:</strong> Students are actively encouraged to develop and stage their <strong>own plays and short shows</strong>. This fosters original storytelling, scriptwriting skills, and the aesthetic development of personal artistic voices, essential for <strong>Emotional Development</strong> and self-expression.</li>
+                <li><strong>Classic Repertoire:</strong> The program includes performances of popular, canonical plays from the global stage (e.g., Shakespeare, Ibsen, contemporary playwrights). This provides hands-on experience in interpreting established dramatic aesthetics and techniques, linking <strong>Emotional Development</strong> to complex character portrayal.</li>
+                <li><strong>Full Production Cycle:</strong> Students manage every aspect of the show, from lighting and sound design to costume creation and marketing. This fosters <strong>Social Development</strong> through collaboration and enhances <strong>Physical Development</strong> through stage presence and technical skills.</li>
+            </ul>
+        </section>
 
-    </main>
+    </main>
 
-    <footer>
-        <p>Aesthetic Excellence and Global Culture | Royal Academy Bhutan</p>
-        <p>© 2025 International Dramatic Arts | All Rights Reserved</p>
-    </footer>
-    
-    <script>
-        // JavaScript for the fixed hamburger menu toggle
-        document.getElementById('menuToggle').addEventListener('click', function() {
-            const menu = document.getElementById('overlayMenu');
-            this.classList.toggle('active');
-            menu.classList.toggle('visible');
-            // Toggle the class on the body to control scrolling
-            document.body.classList.toggle('menu-open');
-        });
+    <footer>
+        <p>Aesthetic Excellence and Global Culture | Royal Academy Bhutan</p>
+        <p>© 2025 International Dramatic Arts | All Rights Reserved</p>
+    </footer>
+    
+    <script>
+        // JavaScript for the fixed hamburger menu toggle
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            const menu = document.getElementById('overlayMenu');
+            this.classList.toggle('active');
+            menu.classList.toggle('visible');
+        });
 
-        // Close menu when a link is clicked
-        document.querySelectorAll('.overlay-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('menuToggle').classList.remove('active');
-                document.getElementById('overlayMenu').classList.remove('visible');
-                // Remove the class on the body when closing
-                document.body.classList.remove('menu-open');
-            });
-        });
-    </script>
+        // Close menu when a link is clicked
+        document.querySelectorAll('.overlay-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('menuToggle').classList.remove('active');
+                document.getElementById('overlayMenu').classList.remove('visible');
+            });
+        });
+    </script>
 </body>
 </html>
