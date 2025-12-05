@@ -3,25 +3,37 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>The Sacred Brush: Lha Zo and TRA's Five Areas of Development</title>
+    <title>The Sacred Brush: Lha Zo (Painting) Curriculum at The Royal Academy</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         /* 1. Global Reset and Base Styling */
-        * { margin: 0; padding: 0; box-sizing: border-box; } 
-        
-        /* === CREAMY/IVORY LIGHT MODE BODY STYLE (Bhutanese Aesthetic Template) === */
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed, 
+        figure, figcaption, footer, header, hgroup, 
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; }
+
         body {
-            font-family: 'Inter', sans-serif; /* Changed to Inter */
+            font-family: 'Inter', sans-serif;
             background-color: #FAF7E8; /* Creamy/Off-White Background */
-            color: #34495E; /* Charcoal/Forest Green - Default Body Text */
+            color: #34495E; /* Charcoal/Forest Green - Default Body Text for light background */
             line-height: 1.7;
             scroll-behavior: smooth;
             min-height: 100vh;
             animation: fadeIn 0.9s ease forwards;
             opacity: 0;
+            box-sizing: border-box; 
         }
-
-        /* Color Palette Matches Sculpture Template */
+        
+        /* === COLOR PALETTE === */
         /* Primary Dark Text: #34495E */
         /* Main Accent: #F4B34C (Deep Ochre/Saffron) */
         /* Background Cream: #FAF7E8 */
@@ -30,12 +42,9 @@
         /* 2. Header Styling */
         header {
             position: relative; 
-            background-color: #FAF7E8; /* Creamy background */
-            color: #34495E; /* Dark text */
-            
-            /* FIX: Remove horizontal padding from header container and center it */
+            background-color: #FAF7E8; 
+            color: #34495E; 
             padding: 35px 0 20px 0; 
-            
             text-align: center;
             box-shadow: 0 3px 10px rgba(0,0,0,0.1); 
             margin-bottom: 40px; 
@@ -47,13 +56,12 @@
         }
         header p {
             color: #34495E; /* Dark text for subtitle */
-            /* FIX: Add balancing padding to shift the centered text right, compensating for the fixed menu icon on the left */
+            /* Padding adjustment to center text despite fixed menu icon on left */
             padding-left: 65px; 
             padding-right: 20px;
         }
         
         /* 2.5. HAMBURGER MENU STYLING (Fixed Navigation) */
-
         .menu-toggle {
             position: fixed; 
             top: 20px; 
@@ -61,7 +69,7 @@
             z-index: 110; 
             width: 45px;
             height: 45px;
-            background-color: #F4B34C; /* Accent color background */
+            background-color: #F4B34C; 
             border-radius: 8px;
             display: flex;
             justify-content: center;
@@ -95,12 +103,27 @@
             transition: transform 0.3s ease, top 0.3s ease;
         }
 
-        .menu-icon::before { top: -8px; }
-        .menu-icon::after { top: 8px; }
+        .menu-icon::before {
+            top: -8px;
+        }
 
-        .menu-toggle.active .menu-icon { background-color: transparent; }
-        .menu-toggle.active .menu-icon::before { top: 0; transform: rotate(45deg); }
-        .menu-toggle.active .menu-icon::after { top: 0; transform: rotate(-45deg); }
+        .menu-icon::after {
+            top: 8px;
+        }
+
+        .menu-toggle.active .menu-icon {
+            background-color: transparent; 
+        }
+
+        .menu-toggle.active .menu-icon::before {
+            top: 0;
+            transform: rotate(45deg);
+        }
+
+        .menu-toggle.active .menu-icon::after {
+            top: 0;
+            transform: rotate(-45deg);
+        }
 
         /* --- Full-screen Menu Overlay -> SIDEBAR STYLING --- */
         .overlay-menu {
@@ -112,12 +135,10 @@
             height: 100%;
             background-color: #FFFFF0; 
             z-index: 105;
-            
             display: flex;
             flex-direction: column;
             padding-top: 80px; 
             padding-left: 10px;
-            
             transform: translateX(-100%); 
             box-shadow: 4px 0 10px rgba(0,0,0,0.1);
             transition: transform 0.4s ease;
@@ -151,6 +172,14 @@
             transition: color 0.3s, background-color 0.3s, border-left-color 0.3s;
         }
         
+        /* HIGHLIGHT FOR CURRENT PAGE (Painting/Lha Zo) */
+        .overlay-menu a[href="#painting-content"] {
+            background-color: #F4B34C15;
+            color: #F4B34C;
+            border-left-color: #F4B34C;
+        }
+
+
         .overlay-menu a:hover {
             background-color: #F4B34C15; 
             color: #F4B34C; 
@@ -166,14 +195,13 @@
             padding-bottom: 60px;
         }
         section {
-            background: #FAF7E8; /* Creamy background */
-            border-radius: 16px; /* Larger radius */
+            background: #FAF7E8; 
+            border-radius: 16px;
             padding: 35px; 
             margin-bottom: 50px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.05); /* Softer shadow */
-            border-top: 4px solid #F4B34C; /* Top accent bar */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.05); 
+            border-top: 4px solid #F4B34C; 
             padding-top: 40px; 
-            border-left: none;
         }
         
         h2 {
@@ -195,20 +223,20 @@
             height: auto;
             max-height: 400px;
             object-fit: cover;
-            border-radius: 12px; /* Adjusted radius to match template */
+            border-radius: 12px; 
             margin: 25px 0;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1); /* Adjusted shadow to match template */
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
         }
         
-        /* Highlight Box: Use the whiter Ivory color to stand out slightly from the creamy background */
+        /* Highlight Box */
         .highlight-box {
-            background-color: #FFFFF0; /* Whiter Ivory */
-            border: 2px solid #F4B34C; /* Accent border */
-            border-radius: 10px; /* Adjusted radius */
+            background-color: #FFFFF0; 
+            border: 2px solid #F4B34C; 
+            border-radius: 10px; 
             padding: 20px;
             margin-top: 20px;
             font-style: italic;
-            color: #34495E; /* Dark text */
+            color: #34495E; 
         }
         
         /* List Styling for emphasis */
@@ -216,7 +244,7 @@
             color: #34495E;
             margin-top: 25px;
             margin-bottom: 10px;
-            font-size: 1.4rem; 
+            font-size: 1.4rem;
             font-weight: 600;
         }
         ul {
@@ -229,8 +257,9 @@
             text-indent: -1.5em;
         }
         ul li::before {
-            content: "◆"; /* Saffron diamond bullet (Thematic/Aesthetic choice) */
+            content: "◆"; /* Changed from '♪' to diamond for the Painting page */
             color: #F4B34C; 
+            font-weight: 700; 
             display: inline-block; 
             width: 1.5em; 
         }
@@ -238,8 +267,8 @@
         /* 4. Footer Styling */
         footer {
             text-align: center;
-            background: #FAF7E8; /* Creamy background */
-            color: #34495E; /* Dark text */
+            background: #FAF7E8; 
+            color: #34495E; 
             padding: 28px 0;
             margin-top: 60px;
             font-size: 1rem;
@@ -282,24 +311,26 @@
     
     <div class="overlay-menu" id="overlayMenu">
         <ul>
-            <li><a href="index.html">Main Page (Zorig Chusum)</a></li>
-            <li><a href="painting.html">Painting (Lha Zo)</a></li>
-            <li><a href="sculpture.html">Sculpture (Jim Zo)</a></li>
-            <li><a href="weaving.html">Weaving (Thag Zo)</a></li>
-            <li><a href="carving.html">Wood Carving (Shing Zo)</a></li>
+            <li><a href="index.html">Main Page (Arts Overview)</a></li>
+            <li><a href="sculpture.html" title="Elegant forms shaped from stone, wood, and clay inspired by Bhutanese artistry.">Sculpture (Jim Zo)</a></li>
+            <li><a href="weaving.html" title="Colorful handwoven fabrics showcasing fine patterns and traditional skill.">Weaving (Thag Zo)</a></li>
+            <li><a href="carving.html" title="Wood Carving (Shing Zo)">Wood Carving (Shing Zo)</a></li>
+            <li><a href="music.html" title="Melodies and rhythms capturing the heart of Bhutanese culture.">Music</a></li>
+            <li><a href="theatre.html" title="Performances that bring stories alive through expressive movement.">Theatre</a></li>
+            <li style="margin-top: 15px;"><a href="#painting-content"><strong>Current Page: Painting (Lha Zo)</strong></a></li>
         </ul>
     </div>
     
     <header>
-        <h1>The Sacred Brush: Lha Zo and The Royal Academy Philosophy</h1>
-        <p>Connecting Traditional Bhutanese Painting to the Five Areas of Development</p>
+        <h1>🎨 The Sacred Brush: Painting (Lha Zo) Curriculum at The Royal Academy</h1>
+        <p>Connecting Traditional Iconography to the Five Areas of Student Development</p>
     </header>
 
     <main>
-        <section id="introduction">
-            <h2>1. Lha Zo: Integrating Aesthetic Discipline with Development 🎨</h2>
+        <section id="painting-content">
+            <h2>1. Lha Zo: Integrating Aesthetic Discipline with Development</h2>
             <p>
-                Bhutanese painting, or Lha Zo, is more than an aesthetic tradition; it is a spiritual and intellectual discipline. Its practice is uniquely positioned within The Royal Academy (TRA)'s curriculum to foster all five areas of student development by demanding precision, patience, intellectual rigor, and profound concentration.
+                Bhutanese painting, or **Lha Zo**, is more than an aesthetic tradition; it is a spiritual and intellectual discipline. Its practice is uniquely positioned within The Royal Academy (TRA)'s curriculum to foster all five areas of student development by demanding precision, patience, intellectual rigor, and profound concentration.
             </p>
             
             <img src="paint.png" 
@@ -307,63 +338,33 @@
                 class="content-image"
                 onerror="this.onerror=null; this.src='https://placehold.co/900x400/f4a261/3b4a59?text=Bhutanese+Painting+Mural';"
             >
-        </section>
 
-        ---
-
-        <section id="intellectual-moral">
-            <h2>2. Intellectual and Moral Growth through Precision</h2>
-            <p>
-                The foundational principles of Lha Zo directly cultivate the Intellectual and Moral Development of the student by prioritizing canonical accuracy over personal expression.
-            </p>
-            
-            <h3>Links to TRA Pillars:</h3>
+            <h3>Core Pillars of the Program:</h3>
             <ul>
                 <li>
-                    Intellectual Development (Geometric Mastery): Students begin by learning the geometric formulae for simple traditional motifs. This progressive mastery of line and symmetry strengthens analytical and spatial reasoning, later expanding to the complex grid systems (Thig Thad) required for deities and mandalas.
+                    Intellectual Development: Mastery of the **Thig Thad** (canonical grid system) strengthens analytical and spatial reasoning.
                 </li>
-                <li>Moral Development (Canonical Fidelity): The art demands absolute fidelity to iconography. Students learn that their work is a sacred conduit, not a self-portrait. This promotes humility, respect for tradition, and the moral integrity required to execute a duty for the benefit of others (the viewers/devotees).</li>
-                <li>Social Development (Resource Management): The traditional process of grinding mineral pigments and preparing the canvas is collaborative. Students learn to share rare resources, follow hierarchy (master-apprentice), and execute collective tasks efficiently.</li>
+                <li>
+                    Moral Development: Absolute fidelity to iconography instills **humility** and respect for sacred tradition.
+                </li>
+                <li>
+                    Physical Development: Manual grinding of mineral pigments and fine line work enhances **fine motor skills** and persistence.
+                </li>
+                <li>
+                    Spiritual Development: Understanding the symbolism of the **Five Sacred Colors** connects the technical act to philosophical purpose.
+                </li>
             </ul>
         </section>
 
-        ---
-
-        <section id="practical-development">
-            <h2>3. Practical Student Application and Aesthetic Exploration</h2>
+        <section id="instructional-details">
+            <h2>2. Instruction and Technique</h2>
             <p>
-                TRA students engage in Lha Zo through a structured, multi-stage learning process that ensures practical skill enhancement and reinforces the five developmental areas. They combine rigorous traditional training with exposure to Western artistic principles.
-            </p>
-            
-            <h3>Practical Stages of Learning:</h3>
-            <ul>
-                <li>
-                    Initial Drawing Mastery (Traditional Motifs): Students start by drawing simple geometric patterns. This sequence develops foundational precision in line work and understanding of proportional balance before moving to complex figurative work.
-                </li>
-                <li>
-                    Integrating Western Aesthetics: After achieving a base level of skill in Lha Zo line work, students explore Western paintings. They use Western mediums (e.g., acrylics, oils) and techniques (e.g., perspective, chiaroscuro) to paint traditional Bhutanese scenes, contrasting the symbolic, flat Lha Zo style with the naturalistic, three-dimensional Western approach.
-                </li>
-                <li>Grinding Pigments & Precision: Students learn to source and manually grind natural minerals (e.g., lapis lazuli for blue) into usable pigments. This exercise instills patience, a deep respect for natural materials, and enhances Physical Development through fine motor skill refinement.</li>
-                <li>Color Symbolism and Placement: Students must apply the Five Sacred Colors correctly, understanding the deep philosophical meaning behind each shade (e.g., Yellow symbolizes the earth/foundation). This links the technical act of painting to Spiritual Development.</li>
-            </ul>
-        </section>
-
-        ---
-
-        <section id="emotional-spiritual">
-            <h2>4. Emotional and Spiritual Depth</h2>
-            <p>
-                Beyond the technical demands, Lha Zo offers profound lessons in self-mastery and inner peace, crucial for Emotional and Spiritual Development.
+                Students are trained in both traditional mineral pigment painting on canvas (Thangka) and contemporary drawing techniques. This dual approach ensures both cultural preservation and modern artistic literacy.
             </p>
             <div class="highlight-box">
                 "The quiet, repetitive act of painting, guided by ancient rules, transforms the workshop into a space for profound concentration, mirroring the mental discipline required for Buddhist meditation."
             </div>
-            <ul>
-                <li>Emotional Development (Patience and Persistence): The multi-month process of creating a single thangka teaches the student to manage frustration, embrace incremental progress, and develop immense patience—essential qualities for emotional resilience.</li>
-                <li>Spiritual Development (Dedication and Purpose): The final act of "opening the eyes" of the deity (the ritualistic final touch) transforms the image from an object of art into an object of veneration. Students understand their role in creating a sacred space, connecting their personal effort to a higher, spiritual purpose.</li>
-            </ul>
         </section>
-
     </main>
 
     <footer>
@@ -372,7 +373,6 @@
     </footer>
     
     <script>
-        // JavaScript for the fixed hamburger menu toggle
         document.getElementById('menuToggle').addEventListener('click', function() {
             const menu = document.getElementById('overlayMenu');
             this.classList.toggle('active');
